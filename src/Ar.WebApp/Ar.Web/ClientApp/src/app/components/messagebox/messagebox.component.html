@@ -1,0 +1,38 @@
+<dx-popup class="popup"
+          [height]="'auto'"
+          [width]="450"
+          [showTitle]="true"
+          [title]="messageBoxArgs.title"
+          [dragEnabled]="true"
+          [closeOnOutsideClick]="false"
+          [(visible)]="isVisible">
+
+    <div *dxTemplate="let data of 'content'">
+
+        <div id="content" class="row">
+            <div id="message" class="col">{{messageBoxArgs.message}}</div>
+
+            <div class="w-100"></div>
+
+            <div id="actions" class="text-center col">
+
+                <dx-button type="success"
+                           [visible]="isOkButtonVisible"
+                           (onClick)="onClickOK()"
+                           text="OK"></dx-button>
+                <dx-button [visible]="isYesButtonVisible"
+                           type="success"
+                           (onClick)="onClickYes()"
+                           text="Yes"></dx-button>
+                <dx-button [visible]="isNoButtonVisible"
+                           type="danger"
+                           (onClick)="onClickNo()"
+                           text="No"></dx-button>
+                <dx-button [visible]="isCancelButtonVisible"
+                           type="danger"
+                           (onClick)="onClickCancel()"
+                           text="Abbrechen"></dx-button>
+            </div>
+        </div>
+    </div>
+</dx-popup>

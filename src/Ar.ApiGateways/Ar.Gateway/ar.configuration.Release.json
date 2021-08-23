@@ -1,0 +1,55 @@
+{
+  /**
+        This file overrides settings of Ar.configuration.json for ASPNETCORE_ENVIRONMENT=Release
+    */
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "architect-compiler",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/compiler/{everything}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "architect-generator",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/generator/{everything}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "architect-notification",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/notification/{everything}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "architect-supplier",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/supplier/{everything}",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+version: '3.4'
+
+services:
+  architect-web:
+    image: ${DOCKER_REGISTRY-}arweb
+    build:
+      context: .
+      dockerfile: src/Ar.WebApp/Ar.Web/Dockerfile
+
+  architect-supplier:
+    image: ${DOCKER_REGISTRY-}arsupplierapi
+    build:
+      context: .
+      dockerfile: src/Ar.Services/Supplier.Service/Ar.Supplier.Api/Dockerfile
+
+
+  architect-notification:
+    image: ${DOCKER_REGISTRY-}arnotificationapi
+    build:
+      context: .
+      dockerfile: src/Ar.Services/Notification.Service/Ar.Notification.Api/Dockerfile
+
+
+  architect-generator:
+    image: ${DOCKER_REGISTRY-}argeneratorapi
+    build:
+      context: .
+      dockerfile: src/Ar.Services/Generator.Service/Ar.Generator.Api/Dockerfile
+
+
+  architect-compiler:
+    image: ${DOCKER_REGISTRY-}arcompilerapi
+    build:
+      context: .
+      dockerfile: src/Ar.Services/Compiler.Service/Ar.Compiler.Api/Dockerfile
+
+
+  architect-gateway:
+    image: ${DOCKER_REGISTRY-}argateway
+    build:
+      context: .
+      dockerfile: src/Ar.ApiGateways/Ar.Gateway/Dockerfile
+
+  # Databases
+  sql-data-generatordb:
+    image: mysql
+

@@ -1,0 +1,75 @@
+<dx-popup class="popup"
+          [width]="550"
+          [height]="'auto'"
+          [showTitle]="true"
+          [dragEnabled]="true"
+          [showCloseButton]="true"
+          [closeOnOutsideClick]="false"
+          [(visible)]="isVisible"
+          title="Send message">
+
+  <div *dxTemplate="let data of 'content'">
+
+    <div id="content" class="row">
+
+      <div class="dx-fieldset" id="fields">
+
+        <div class="dx-field">
+          <div class="dx-field-label">Selected PD</div>
+          <div class="dx-field-value-static">{{selectedProcessDefinition.name}} (v{{selectedProcessDefinition.version}})</div>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">Message name</div>
+          <div class="dx-field-value">
+            <dx-text-box placeholder="Type a message here..."
+                         valueChangeEvent="keyup"
+                         [value]="messageName"
+                         (onValueChanged)="valueChanged($event)">
+            </dx-text-box>
+          </div>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">Message data</div>
+          <div class="dx-field-value">
+            <dx-text-box placeholder="Type a variable name here..."
+                         valueChangeEvent="keyup"
+                         [value]="variableName"
+                         (onValueChanged)="variableNameChanged($event)">
+            </dx-text-box>
+          </div>
+          <div class="dx-field-value" id="variableValue">
+            <dx-text-box placeholder="Type a variable value here..."
+                         valueChangeEvent="keyup"
+                         [value]="variableValue"
+                         (onValueChanged)="variableValueChanged($event)">
+            </dx-text-box>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="w-100 actions">
+
+      <dx-button id="btnOk" type="success"
+                 [width]="150"
+                 [height]="50"
+                 [disabled]="!messageName"
+                 (onClick)="validateOK($event)"
+                 text="SEND"></dx-button>
+
+      <dx-button id="btnCancel" type="danger"
+                 [width]="150"
+                 [height]="50"
+                 (onClick)="onClickCancel($event)"
+                 text="CANCEL"></dx-button>
+
+    </div>
+
+  </div>
+
+
+</dx-popup>

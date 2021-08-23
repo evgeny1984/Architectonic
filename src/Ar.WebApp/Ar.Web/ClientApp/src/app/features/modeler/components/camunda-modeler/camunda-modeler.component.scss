@@ -1,0 +1,32 @@
+#properties {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 20%;
+  z-index: 10;
+  border-left: 1px solid #ccc;
+  overflow: auto;
+}
+
+.diagram-container {
+  height: 800px;
+}
+
+::ng-deep
+#canvas > div > a {
+  visibility: collapse !important;
+}
+
+#canvas {
+  height: 100%;
+  width: 80%;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+.button {
+  margin-left: 10px;
+}

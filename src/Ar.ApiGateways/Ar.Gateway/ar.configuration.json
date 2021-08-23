@@ -1,0 +1,127 @@
+{
+  "Routes": [
+    {
+      /**
+        The DownstreamPathTemplate, Scheme, and DownstreamHostAndPorts make the internal microservice URL that this request will be forwarded to.
+      */
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          /**
+            The Host is a service name that depends on the service name resolution you are using. When using docker-compose, the services names
+            are provided by the Docker Host, which is using the service names provided in the docker-compose files.
+            If using an orchestrator like Kubernetes or Service Fabric, that name should be resolved by the DNS or name resolution
+            provided by each orchestrator.
+          */
+          "Host": "localhost",
+          /**
+            The port is the internal port used by the service. When using containers, the port specified at its dockerfile.
+          */
+          "Port": 9001
+        }
+      ],
+      /**
+        The UpstreamPathTemplate is the URL that Ocelot will use to identify which DownstreamPathTemplate to use for a given request from the client. 
+      */
+      "UpstreamPathTemplate": "/compiler/{everything}",
+      /**
+        Finally, the UpstreamHttpMethod is used so Ocelot can distinguish between different requests (GET, POST, PUT) to the same URL.
+      */
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+    },
+    {
+      /**
+        The DownstreamPathTemplate, Scheme, and DownstreamHostAndPorts make the internal microservice URL that this request will be forwarded to.
+      */
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          /**
+            The Host is a service name that depends on the service name resolution you are using. When using docker-compose, the services names
+            are provided by the Docker Host, which is using the service names provided in the docker-compose files.
+            If using an orchestrator like Kubernetes or Service Fabric, that name should be resolved by the DNS or name resolution
+            provided by each orchestrator.
+          */
+          "Host": "localhost",
+          /**
+            The port is the internal port used by the service. When using containers, the port specified at its dockerfile.
+          */
+          "Port": 9002
+        }
+      ],
+      /**
+        The UpstreamPathTemplate is the URL that Ocelot will use to identify which DownstreamPathTemplate to use for a given request from the client. 
+      */
+      "UpstreamPathTemplate": "/generator/{everything}",
+      /**
+        Finally, the UpstreamHttpMethod is used so Ocelot can distinguish between different requests (GET, POST, PUT) to the same URL.
+      */
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+    },
+    {
+      /**
+        The DownstreamPathTemplate, Scheme, and DownstreamHostAndPorts make the internal microservice URL that this request will be forwarded to.
+      */
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          /**
+            The Host is a service name that depends on the service name resolution you are using. When using docker-compose, the services names
+            are provided by the Docker Host, which is using the service names provided in the docker-compose files.
+            If using an orchestrator like Kubernetes or Service Fabric, that name should be resolved by the DNS or name resolution
+            provided by each orchestrator.
+          */
+          "Host": "localhost",
+          /**
+            The port is the internal port used by the service. When using containers, the port specified at its dockerfile.
+          */
+          "Port": 9003
+        }
+      ],
+      /**
+        The UpstreamPathTemplate is the URL that Ocelot will use to identify which DownstreamPathTemplate to use for a given request from the client. 
+      */
+      "UpstreamPathTemplate": "/notification/{everything}",
+      /**
+        Finally, the UpstreamHttpMethod is used so Ocelot can distinguish between different requests (GET, POST, PUT) to the same URL.
+      */
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+    },
+    {
+      /**
+        The DownstreamPathTemplate, Scheme, and DownstreamHostAndPorts make the internal microservice URL that this request will be forwarded to.
+      */
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          /**
+            The Host is a service name that depends on the service name resolution you are using. When using docker-compose, the services names
+            are provided by the Docker Host, which is using the service names provided in the docker-compose files.
+            If using an orchestrator like Kubernetes or Service Fabric, that name should be resolved by the DNS or name resolution
+            provided by each orchestrator.
+          */
+          "Host": "localhost",
+          /**
+            The port is the internal port used by the service. When using containers, the port specified at its dockerfile.
+          */
+          "Port": 9004
+        }
+      ],
+      /**
+        The UpstreamPathTemplate is the URL that Ocelot will use to identify which DownstreamPathTemplate to use for a given request from the client. 
+      */
+      "UpstreamPathTemplate": "/supplier/{everything}",
+      /**
+        Finally, the UpstreamHttpMethod is used so Ocelot can distinguish between different requests (GET, POST, PUT) to the same URL.
+      */
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5000"
+  }
+}

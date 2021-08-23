@@ -1,0 +1,57 @@
+version: '3.4'
+
+services:
+  architect-web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - AppSettings__IdentityUrl=http://architect-gateway/identity
+      - AppSettings__ServiceGatewayUrl=http://architect-gateway
+    ports:
+      - "80"
+
+  architect-supplier:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "80"
+
+  architect-notification:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "80"
+
+  architect-generator:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - ConnectionStrings__MySqlProvider=server=sql-data-generatordb;database=generatordb;userid=admin;password=admin
+    ports:
+      - "80"
+
+  architect-compiler:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "80"
+
+  architect-gateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "5000:80"
+
+  # Databases
+  sql-data-generatordb:
+    environment:
+      - MYSQL_ROOT_PASSWORD=Pass@word
+      - MYSQL_DATABASE=generatordb
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+    volumes:
+      - ${APPDATA-}/docker-volumes/sql-data-generatordb:/var/lib/mysql

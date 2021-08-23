@@ -1,0 +1,20 @@
+.dx-button {
+  margin: 10px;
+  min-width: 100px;
+  height: auto;
+}
+
+#actions {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+#message{
+  height: auto;
+  white-space: pre-wrap;
+}
+
+#content{
+  margin: 0 auto;
+}

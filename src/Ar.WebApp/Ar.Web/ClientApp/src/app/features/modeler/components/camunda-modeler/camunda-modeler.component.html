@@ -1,0 +1,36 @@
+<!--Actions-->
+<div class="row actions">
+  <dx-button stylingMode="outlined"
+             class="button"
+             text="< BACK"
+             type="success"
+             [width]="120"
+             (onClick)="onBackClicked()">
+  </dx-button>
+
+  <dx-button [text]="deployButtonText"
+             class="button"
+             type="success"
+             [width]="120"
+             (onClick)="onDeployedClicked()">
+  </dx-button>
+
+  <dx-button text="INITIATE"
+             class="button"
+             type="success"
+             [width]="120"
+             [visible]="false"
+             (onClick)="onInitiateClicked()">
+  </dx-button>
+
+</div>
+
+<div class="diagram-container">
+  <div #ref id="canvas"></div>
+  <div #properties id="properties"></div>
+</div>
+
+
+
+
+

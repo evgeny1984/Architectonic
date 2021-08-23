@@ -1,0 +1,31 @@
+<h1>Process history</h1>
+
+<dx-data-grid id="processInstancesGrid"
+              #processInstancesGrid
+              [height]="gridHeight"
+              [dataSource]="processInstances"
+              [showBorders]="true"
+              [wordWrapEnabled]="true">
+
+  <dxo-load-panel [enabled]="true"></dxo-load-panel>
+  <dxo-search-panel [visible]="true"
+                    [highlightCaseSensitive]="true"></dxo-search-panel>
+  <dxo-group-panel [visible]="true"></dxo-group-panel>
+  <dxo-selection mode="single"></dxo-selection>
+
+  <dxi-column dataField="processDefinitionName" caption="Name"></dxi-column>
+  <dxi-column dataField="processDefinitionKey" caption="Key"></dxi-column>
+  <dxi-column dataField="startTime" caption="Start time" alignment="center" [width]="200" cellTemplate="dateCellTemplate"></dxi-column>
+  <dxi-column dataField="endTime" caption="End time" alignment="center" [width]="200" [customizeText]="customizeEndDateText"></dxi-column>
+  <dxi-column dataField="state" caption="State" cellTemplate="stateCellTemplate"></dxi-column>
+
+  <div *dxTemplate="let data of 'stateCellTemplate'">
+    {{data.value | processState}}
+  </div>
+
+  <div *dxTemplate="let data of 'dateCellTemplate'">
+    {{data.value == '0001-01-01' ? 'undefined' : data.value | date:'short'}}
+  </div>
+
+</dx-data-grid>
+

@@ -1,0 +1,38 @@
+<div #maindiv class="container-fluid maindiv d-flex flex-column h-100">
+
+  <h1>Process Definitions</h1>
+
+  <dx-data-grid id="processDefinitionsGrid"
+                #processDefinitionsGrid
+                [height]="gridHeight"
+                [dataSource]="processDefinitions"
+                [showBorders]="true"
+                [wordWrapEnabled]="true"
+                (onRowDblClick)="openSelectedProcess($event)"
+                (onRowClick)="onSelectProcess($event)"
+                (onToolbarPreparing)="onToolbarPreparing($event)">
+
+    <dxo-load-panel [enabled]="true"></dxo-load-panel>
+    <dxo-search-panel [visible]="true"
+                      [highlightCaseSensitive]="true"></dxo-search-panel>
+    <dxo-group-panel [visible]="true"></dxo-group-panel>
+    <dxo-selection mode="single"></dxo-selection>
+
+    <dxi-column dataField="name" caption="Name"></dxi-column>
+    <dxi-column dataField="category" caption="Category" [width]="450"></dxi-column>
+    <dxi-column dataField="key" caption="Key"></dxi-column>
+    <dxi-column dataField="version" caption="Version" alignment="center" [width]="100"></dxi-column>
+    <dxi-column dataField="resource" caption="Resource"></dxi-column>
+
+  </dx-data-grid>
+
+  <app-send-camunda-message [callback]="messageSentCallback"
+                            [selectedProcessDefinition]="selectedProcessDefinition"></app-send-camunda-message>
+
+  <input type="file"
+         #fileInput
+         id="file-input"
+         accept=".bpmn"
+         (change)="onFileSelected($event)" />
+
+</div>

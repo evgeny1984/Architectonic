@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "src",
+    "module": "es2020",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "paths": {
+      "@app/*": [ "app/*" ],
+      "@bol/*": [ "app/bol/*" ],
+      "@components/*": [ "app/components/*" ],
+      "@features/*": [ "app/features/*" ],
+      "@models/*": [ "app/models/*" ],
+      "@modules/*": [ "app/modules/*" ],
+      "@pipes/*": [ "app/pipes/*" ],
+      "@services/*": [ "app/services/*" ]
+    },
+    "resolveJsonModule": true
+  }
+  }

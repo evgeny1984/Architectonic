@@ -1,0 +1,9 @@
+.body-content {
+  max-height: 100%;
+}
+
+.top-container {
+  height: calc(100vh - 2px) !important;
+  display: flex;
+  flex-direction: column;
+}
