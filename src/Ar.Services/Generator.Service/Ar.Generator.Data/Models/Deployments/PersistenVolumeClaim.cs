@@ -1,13 +1,16 @@
-﻿using Ar.Generator.Data.Models.EntityModel;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ar.Generator.Data.Models.Deployments
 {
     [Table(nameof(PersistenVolumeClaim))]
     public class PersistenVolumeClaim : BaseEntity
     {
+
+        #region FKs
+
+        public int KubernetesId { get; set; }
+
+        #endregion
 
         #region Columns
 
@@ -18,7 +21,7 @@ namespace Ar.Generator.Data.Models.Deployments
 
         #region Relationships
 
-        public DbEngine Kubernetes { get; set; }
+        public Kubernetes Kubernetes { get; set; }
 
         #endregion
 

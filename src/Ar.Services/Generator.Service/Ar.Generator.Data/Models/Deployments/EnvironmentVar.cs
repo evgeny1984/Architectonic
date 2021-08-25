@@ -1,5 +1,4 @@
 ﻿using Ar.Generator.Data.Models.EntityModel;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,6 +7,16 @@ namespace Ar.Generator.Data.Models.Deployments
     [Table(nameof(EnvironmentVar))]
     public class EnvironmentVar : BaseEntity
     {
+        public EnvironmentVar()
+        {
+            DockerComposeServices = new List<DockerComposeService>();
+        }
+
+        #region FKs
+
+        public int KubernetesId { get; set; }
+
+        #endregion
 
         #region Columns
 
@@ -19,8 +28,9 @@ namespace Ar.Generator.Data.Models.Deployments
 
         #region Relationships
 
-        public DbEngine Kubernetes { get; set; }
-        public DockerComposeService DockerComposeService { get; set; }
+        public Kubernetes Kubernetes { get; set; }
+
+        public ICollection<DockerComposeService> DockerComposeServices { get; set; }
 
         #endregion
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ar.Generator.Data.Models.Deployments
@@ -13,9 +12,16 @@ namespace Ar.Generator.Data.Models.Deployments
             EnvVars = new List<EnvironmentVar>();
         }
 
+        #region FKs
+
+        public int DockerComposeId { get; set; }
+
+        #endregion
+
         #region Columns
 
         public string Name { get; set; }
+
         public string Ports { get; set; }
 
         #endregion
@@ -23,6 +29,8 @@ namespace Ar.Generator.Data.Models.Deployments
         #region Relationships
 
         public ICollection<EnvironmentVar> EnvVars { get; set; }
+
+        public DockerCompose DockerCompose { get; set; }
 
         #endregion
 

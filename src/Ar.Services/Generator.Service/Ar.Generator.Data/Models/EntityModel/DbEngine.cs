@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Ar.Generator.Data.Models.Applications;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -11,6 +11,7 @@ namespace Ar.Generator.Data.Models.EntityModel
         public DbEngine()
         {
             DbEntities = new List<DbEntity>();
+            Microservices = new List<Microservice>();
         }
 
         #region Columns
@@ -22,6 +23,8 @@ namespace Ar.Generator.Data.Models.EntityModel
         #region Relationships
 
         public ICollection<DbEntity> DbEntities { get; set; }
+
+        public ICollection<Microservice> Microservices { get; set; }
 
         #endregion
 

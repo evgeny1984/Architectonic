@@ -1,10 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ar.Generator.Data.Models.SolutionAppConfig
 {
     [Table(nameof(AppConfig))]
     public class AppConfig : BaseEntity
     {
+        public AppConfig()
+        {
+            Applications = new List<Application>();
+        }
 
         #region Columns
 
@@ -15,6 +20,12 @@ namespace Ar.Generator.Data.Models.SolutionAppConfig
         public string AppNamespace { get; set; }
 
         public AppType ApplicationType { get; set; }
+
+        #endregion
+
+        #region Relationships
+
+        public ICollection<Application> Applications { get; set; }
 
         #endregion
 

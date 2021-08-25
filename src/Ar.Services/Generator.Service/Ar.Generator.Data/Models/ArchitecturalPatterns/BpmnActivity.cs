@@ -1,6 +1,4 @@
-﻿using Ar.Generator.Data.Models.ArchitecturalPatterns;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ar.Generator.Data.Models.ArchitecturalPatterns
@@ -12,6 +10,14 @@ namespace Ar.Generator.Data.Models.ArchitecturalPatterns
         {
             BpmnActivityVars = new List<BpmnActivityVar>();
         }
+
+        #region FKs
+
+        public int ActivityHandlerId { get; set; }
+
+        public int ProcessInstanceId { get; set; }
+
+        #endregion
 
         #region Columns
 
@@ -28,6 +34,8 @@ namespace Ar.Generator.Data.Models.ArchitecturalPatterns
         public ICollection<BpmnActivityVar> BpmnActivityVars { get; set; }
 
         public BpmnActivityHandler ActivityHandler { get; set; }
+
+        public ProcessInstance ProcessInstance { get; set; }
 
         #endregion
     }

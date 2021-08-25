@@ -1,6 +1,5 @@
-﻿using Ar.Generator.Data.Models.Deployments;
-using Ar.Generator.Data.Models.SolutionAppConfig;
-using System;
+﻿using Ar.Generator.Data.Models.ArchitecturalPatterns;
+using Ar.Generator.Data.Models.Deployments;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,7 +11,16 @@ namespace Ar.Generator.Data.Models.SolutionAppConfig
         public Application()
         {
             Deployments = new List<Deployment>();
+            BpmnActivityHandlers = new List<BpmnActivityHandler>();
         }
+
+        #region FKs
+
+        public int ConfigurationId { get; set; }
+
+        public int SolutionId { get; set; }
+
+        #endregion
 
         #region Columns
 
@@ -23,9 +31,14 @@ namespace Ar.Generator.Data.Models.SolutionAppConfig
         #endregion
 
         #region Relationships
+
         public ICollection<Deployment> Deployments { get; set; }
 
+        public ICollection<BpmnActivityHandler> BpmnActivityHandlers { get; set; }
+
         public AppConfig Configuration { get; set; }
+
+        public Solution Solution { get; set; }
 
         #endregion
     }

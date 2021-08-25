@@ -16,9 +16,13 @@ namespace Ar.Generator.Data.Models.Deployments
         #region Columns
 
         public string YamlConfig { get; set; }
+
         public string Namespace { get; set; }
+
         public string IngressDomain { get; set; }
+
         public int ReplicasAmount{ get; set; }
+
         public WorkloadType WorkloadType { get; set; }
 
         #endregion
@@ -26,6 +30,7 @@ namespace Ar.Generator.Data.Models.Deployments
         #region Relationships
 
         public PersistenVolumeClaim PVC { get; set; }
+
         public ICollection<EnvironmentVar> EnvVars { get; set; }
 
         #endregion

@@ -1,6 +1,4 @@
 ﻿using Ar.Generator.Data.Models.SolutionAppConfig;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ar.Generator.Data.Models.ArchitecturalPatterns
@@ -8,6 +6,11 @@ namespace Ar.Generator.Data.Models.ArchitecturalPatterns
     [Table(nameof(BpmnActivityHandler))]
     public class BpmnActivityHandler : BaseEntity
     {
+        #region FKs
+
+        public int ResponsibleApplicationId { get; set; }
+
+        #endregion
 
         #region Columns
 
@@ -24,6 +27,8 @@ namespace Ar.Generator.Data.Models.ArchitecturalPatterns
         #region Relationships
 
         public Application ResponsibleApplication { get; set; }
+
+        public BpmnActivity BpmnActivity { get; set; }
 
         #endregion
     }

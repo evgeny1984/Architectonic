@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ar.Generator.Data.Models.ArchitecturalPatterns
 {
     [Table(nameof(BpmnActivityVar))]
     public class BpmnActivityVar : BaseEntity
     {
-        public BpmnActivityVar()
-        {
-        }
+        #region FKs
+
+        public int BpmnActivityId { get; set; }
+
+        #endregion
 
         #region Columns
 

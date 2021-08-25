@@ -1,5 +1,4 @@
 ﻿using Ar.Generator.Data.Models.ArchitecturalPatterns;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -24,6 +23,7 @@ namespace Ar.Generator.Data.Models.SolutionAppConfig
         #endregion
 
         #region Relationships
+
         public ICollection<Application> Applications { get; set; }
 
         public ICollection<DesignPattern> Patterns { get; set; }

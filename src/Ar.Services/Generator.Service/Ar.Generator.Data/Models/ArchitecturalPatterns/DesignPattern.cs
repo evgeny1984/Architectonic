@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Ar.Generator.Data.Models.SolutionAppConfig;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ar.Generator.Data.Models.ArchitecturalPatterns
@@ -7,10 +6,12 @@ namespace Ar.Generator.Data.Models.ArchitecturalPatterns
     [Table(nameof(DesignPattern))]
     public class DesignPattern : BaseEntity
     {
-        public DesignPattern()
-        {
 
-        }
+        #region FKs
+
+        public int SolutionId { get; set; }
+
+        #endregion
 
         #region Columns
 
@@ -21,6 +22,8 @@ namespace Ar.Generator.Data.Models.ArchitecturalPatterns
         #endregion
 
         #region Relationships
+
+        public Solution Solution { get; set; }
 
         #endregion
     }

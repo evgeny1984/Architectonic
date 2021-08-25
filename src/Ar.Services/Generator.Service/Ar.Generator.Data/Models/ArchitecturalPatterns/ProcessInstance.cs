@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ar.Generator.Data.Models.ArchitecturalPatterns
@@ -12,6 +11,13 @@ namespace Ar.Generator.Data.Models.ArchitecturalPatterns
             BpmnActivities = new List<BpmnActivity>();
         }
 
+
+        #region FKs
+
+        public int WorkflowEngineId { get; set; }
+
+        #endregion
+
         #region Columns
 
         public string Name { get; set; }
@@ -23,6 +29,8 @@ namespace Ar.Generator.Data.Models.ArchitecturalPatterns
         #region Relationships
 
         public ICollection<BpmnActivity> BpmnActivities { get; set; }
+
+        public WorkflowEngine WorkflowEngine { get; set; }
 
         #endregion
     }

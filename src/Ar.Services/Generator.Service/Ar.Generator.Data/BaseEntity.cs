@@ -7,6 +7,5 @@ namespace Ar.Generator.Data
         public int Id { get; set; }
         public DateTime AddedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
-        public string IPAddress { get; set; }
     }
 }
