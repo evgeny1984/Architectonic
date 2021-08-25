@@ -53,4 +53,4 @@ src/No.Services/No.Identity/No.Identity.Api/wwwroot/css/vendor.min.css
 src/No.Services/No.Identity/No.Identity.Api/wwwroot/js/vendor.min.js
 src/No.Services/No.Identity/No.Identity.Api/wwwroot/js/vendor-validation.min.js
 .cr/
-docker-compose.dcproj.user
+*.user

@@ -12,7 +12,7 @@ RUN npm install -g npm
 
 WORKDIR /src
 COPY ["src/Ar.WebApp/Ar.Web/Ar.Web.csproj", "src/Ar.WebApp/Ar.Web/"]
-COPY ["src/Ar.Common/DataContracts/Ar.Dto/Ar.Dto.csproj", "src/Ar.Common/DataContracts/Ar.Dto/"]
+COPY ["src/Ar.Common/DataContracts/Architect.Dto/Architect.Dto.csproj", "src/Ar.Common/DataContracts/Architect.Dto/"]
 RUN dotnet restore "src/Ar.WebApp/Ar.Web/Ar.Web.csproj"
 COPY . .
 WORKDIR "/src/src/Ar.WebApp/Ar.Web"
