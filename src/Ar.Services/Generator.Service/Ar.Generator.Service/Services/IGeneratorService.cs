@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 namespace Ar.Generator.Service.Services
 {
-    public interface ISolutionService : IEntityService<SolutionDto>
-    {
-
+    public interface IGeneratorService 
+    {  
+        Task GenerateSolution(SolutionDto solution);      
     }
 }
