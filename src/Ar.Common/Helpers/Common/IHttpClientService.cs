@@ -2,7 +2,7 @@
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace Cc.Common.Helpers
+namespace Ar.Common.Helpers
 {
     public interface IHttpClientService
     {

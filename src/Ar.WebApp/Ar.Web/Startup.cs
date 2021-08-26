@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Ar.Web.Helpers;
-using Architect.Dto.Dto;
+using Architect.Dto.Exceptions;
 
 namespace Ar.Web
 {

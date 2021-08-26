@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Architect.Dto.Dto;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ar.Generator.Data.Models.SolutionAppConfig

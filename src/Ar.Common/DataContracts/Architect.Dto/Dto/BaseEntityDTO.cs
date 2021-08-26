@@ -2,7 +2,7 @@
 
 namespace Architect.Dto.Dto
 {
-    public class BaseEntityDTO
+    public class BaseEntityDto
     {
         public int Id { get; set; }
         public DateTime AddedAt { get; set; } = DateTime.Now;

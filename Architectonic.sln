@@ -17,9 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pipelines", "pipelines", "{
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documentation", "documentation", "{E78DFFA1-90B1-48FC-A3EE-258E4DC0D2CE}"
-	ProjectSection(SolutionItems) = preProject
-		documentation\.gitkeep = documentation\.gitkeep
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A7D270FB-A012-4E86-AE32-4C50CC4A89A1}"
 EndProject
@@ -60,9 +57,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ar.Common.Helpers", "src\Ar.Common\Helpers\Common\Ar.Common.Helpers.csproj", "{3FACBEFB-D2C5-4E6B-928B-441D2E469D65}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventBus", "EventBus", "{D21F48AF-9088-4DEB-92BE-C07C5B660B26}"
-	ProjectSection(SolutionItems) = preProject
-		src\Ar.Messages\EventBus\.gitkeep = src\Ar.Messages\EventBus\.gitkeep
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Compiler.Service", "Compiler.Service", "{F7C1E447-A7C8-49EF-8B17-5078F74F9C7E}"
 EndProject
@@ -149,6 +143,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "statefulset", "statefulset"
 	ProjectSection(SolutionItems) = preProject
 		deployment\k8s\statefulset\.gitkeep = deployment\k8s\statefulset\.gitkeep
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{A5C9828D-7682-4087-A096-68EB50308AB6}"
+	ProjectSection(SolutionItems) = preProject
+		documentation\img\adl-semantic-model.png = documentation\img\adl-semantic-model.png
+		documentation\img\architect-engine.png = documentation\img\architect-engine.png
+		documentation\img\saga-architecture.png = documentation\img\saga-architecture.png
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus", "src\Ar.Messages\EventBus\EventBus\EventBus.csproj", "{B3C4F861-419E-4A27-95E3-6C6CE0E7093A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBusRabbitMQ", "src\Ar.Messages\EventBus\EventBusRabbitMQ\EventBusRabbitMQ.csproj", "{BF2DEFA7-3B68-4FA5-9D13-BFABDB3553D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{06AC75E9-11C1-4FF5-BE93-1FB37CDF0047}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.Tests", "src\Ar.Messages\EventBus\EventBus.Tests\EventBus.Tests.csproj", "{BFD20C9A-0BD0-48E0-AD9B-6C08F2F1FC68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -248,6 +257,18 @@ Global
 		{80AA8A36-CFD8-4EDC-9E5E-D23CF5906C55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80AA8A36-CFD8-4EDC-9E5E-D23CF5906C55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80AA8A36-CFD8-4EDC-9E5E-D23CF5906C55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3C4F861-419E-4A27-95E3-6C6CE0E7093A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3C4F861-419E-4A27-95E3-6C6CE0E7093A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3C4F861-419E-4A27-95E3-6C6CE0E7093A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3C4F861-419E-4A27-95E3-6C6CE0E7093A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF2DEFA7-3B68-4FA5-9D13-BFABDB3553D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF2DEFA7-3B68-4FA5-9D13-BFABDB3553D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF2DEFA7-3B68-4FA5-9D13-BFABDB3553D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF2DEFA7-3B68-4FA5-9D13-BFABDB3553D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFD20C9A-0BD0-48E0-AD9B-6C08F2F1FC68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFD20C9A-0BD0-48E0-AD9B-6C08F2F1FC68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFD20C9A-0BD0-48E0-AD9B-6C08F2F1FC68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFD20C9A-0BD0-48E0-AD9B-6C08F2F1FC68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -303,6 +324,11 @@ Global
 		{B529CB7E-8B57-4AD8-BCB2-F295F181C4A9} = {AB07D834-ACCF-4830-892F-19FAE105B608}
 		{CFDD7991-469C-4B0B-BA26-3A0A746B3575} = {AB07D834-ACCF-4830-892F-19FAE105B608}
 		{C89BE792-E411-4DD1-8917-41D9A9DD0884} = {AB07D834-ACCF-4830-892F-19FAE105B608}
+		{A5C9828D-7682-4087-A096-68EB50308AB6} = {E78DFFA1-90B1-48FC-A3EE-258E4DC0D2CE}
+		{B3C4F861-419E-4A27-95E3-6C6CE0E7093A} = {D21F48AF-9088-4DEB-92BE-C07C5B660B26}
+		{BF2DEFA7-3B68-4FA5-9D13-BFABDB3553D2} = {D21F48AF-9088-4DEB-92BE-C07C5B660B26}
+		{06AC75E9-11C1-4FF5-BE93-1FB37CDF0047} = {D21F48AF-9088-4DEB-92BE-C07C5B660B26}
+		{BFD20C9A-0BD0-48E0-AD9B-6C08F2F1FC68} = {06AC75E9-11C1-4FF5-BE93-1FB37CDF0047}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AC2D95FD-F415-4B7E-B004-6823FC12008E}

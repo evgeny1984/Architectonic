@@ -7,7 +7,7 @@ using System;
 using System.Data.Common;
 using System.Net.Sockets;
 
-namespace Cc.Common.Helpers
+namespace Ar.Common.Helpers
 {
     public static class WebHostExtensions
     {

@@ -1,4 +1,5 @@
 ﻿using Ar.Generator.Data.Models.SolutionAppConfig;
+using Architect.Dto.Dto;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ar.Generator.Data.Models.Deployments
