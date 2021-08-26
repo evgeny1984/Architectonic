@@ -1,4 +1,4 @@
-﻿namespace Ar.Generator.Data.Models.Deployments
+﻿namespace Architect.Dto.Dto
 {
     public enum WorkloadType
     {

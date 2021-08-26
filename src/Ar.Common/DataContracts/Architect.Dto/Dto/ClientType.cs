@@ -1,4 +1,4 @@
-﻿namespace Ar.Generator.Data.Models.Applications
+﻿namespace Architect.Dto.Dto
 {
 
     public enum ClientType

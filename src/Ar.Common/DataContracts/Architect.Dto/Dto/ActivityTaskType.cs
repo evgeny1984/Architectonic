@@ -1,4 +1,4 @@
-﻿namespace Ar.Generator.Data.Models.ArchitecturalPatterns
+﻿namespace Architect.Dto.Dto
 {
     public enum ActivityTaskType
     {

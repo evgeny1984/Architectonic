@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Architect.Dto.Dto;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net;
 
-namespace Architect.Dto.Dto
+namespace Architect.Dto.Exceptions
 {
     public static class ExceptionMiddlewareExtensions
     {

@@ -7,7 +7,7 @@ using Architect.Dto.Dto;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace Cc.Common.Helpers
+namespace Ar.Common.Helpers
 {
     public class BaseHttpClient : IHttpClientService
     {
