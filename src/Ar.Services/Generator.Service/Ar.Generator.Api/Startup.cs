@@ -1,6 +1,10 @@
 using Ar.Generator.Service.Extensions;
+using Ar.Generator.Service.IntegrationEvents.EventHandling;
+using Ar.Generator.Service.IntegrationEvents.Events;
+using Ar.Messages.EventBus.EventBus.Abstractions;
 using Architect.Dto.Dto;
 using Architect.Dto.Exceptions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +17,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -46,6 +51,8 @@ namespace Ar.Generator.Api
                 options.EnableForHttps = true;
                 options.Providers.Add<GzipCompressionProvider>();
             });
+
+            services.RegisterEventBus(appSettings);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -85,6 +92,41 @@ namespace Ar.Generator.Api
             {
                 endpoints.MapControllers();
             });
+
+            ConfigureEventBus(app);
+        }
+
+        private void ConfigureAuthService(IServiceCollection services)
+        {
+            // prevent from mapping "sub" claim to nameidentifier.
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
+
+            var identityUrl = Configuration.GetValue<string>("IdentityUrl");
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = identityUrl;
+                options.RequireHttpsMetadata = false;
+                options.Audience = "generator";
+            });
+        }
+
+        protected virtual void ConfigureAuth(IApplicationBuilder app)
+        {
+            app.UseAuthentication();
+            app.UseAuthorization();
+        }
+
+        private void ConfigureEventBus(IApplicationBuilder app)
+        {
+            var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
+
+            eventBus.Subscribe<SemanticModelCreatedIntegrationEvent, SemanticModelCreatedIntegrationEventHandler>();
         }
     }
 }
