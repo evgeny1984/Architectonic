@@ -1,12 +1,8 @@
-﻿using Ar.Generator.Repository.Repositories;
-using Ar.Generator.Repository.Wrapper;
+﻿using Ar.Generator.Repository.Wrapper;
 using Ar.Generator.Service.IntegrationEvents.Events;
 using Ar.Messages.EventBus.EventBus.Abstractions;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Ar.Generator.Service.IntegrationEvents.EventHandling
@@ -16,9 +12,7 @@ namespace Ar.Generator.Service.IntegrationEvents.EventHandling
         private readonly IRepositoryWrapper _repositoryWrapper;
         private readonly ILogger<SemanticModelCreatedIntegrationEventHandler> _logger;
 
-        public SemanticModelCreatedIntegrationEventHandler(
-            IRepositoryWrapper wrapper,
-            ILogger<SemanticModelCreatedIntegrationEventHandler> logger)
+        public SemanticModelCreatedIntegrationEventHandler(IRepositoryWrapper wrapper, ILogger<SemanticModelCreatedIntegrationEventHandler> logger)
         {
             _repositoryWrapper = wrapper ?? throw new ArgumentNullException(nameof(wrapper));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

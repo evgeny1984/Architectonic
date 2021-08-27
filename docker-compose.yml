@@ -1,11 +1,18 @@
 version: '3.4'
 
 services:
+
+  architect-messenger:
+    image: rabbitmq:3-management-alpine
+
   architect-web:
     image: ${DOCKER_REGISTRY-}arweb
     build:
       context: .
       dockerfile: src/Ar.WebApp/Ar.Web/Dockerfile
+    depends_on:
+      - architect-messenger
+      - architect-gateway
 
   architect-supplier:
     image: ${DOCKER_REGISTRY-}arsupplierapi
@@ -26,6 +33,9 @@ services:
     build:
       context: .
       dockerfile: src/Ar.Services/Generator.Service/Ar.Generator.Api/Dockerfile
+    depends_on:
+      - sql-data-generatordb
+    command: /bin/bash -c "until nc -z sql-data-generatordb 5432; do echo waiting for sql-data-generatordb; sleep 60; done;"
 
 
   architect-compiler:
@@ -43,5 +53,5 @@ services:
 
   # Databases
   sql-data-generatordb:
-    image: mysql
+    image: sameersbn/postgresql:10-2
 

@@ -98,7 +98,7 @@ namespace Ar.Generator.Api
 
         private void ConfigureAuthService(IServiceCollection services)
         {
-            // prevent from mapping "sub" claim to nameidentifier.
+            // Prevent from mapping "sub" claim to nameidentifier.
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
 
             var identityUrl = Configuration.GetValue<string>("IdentityUrl");

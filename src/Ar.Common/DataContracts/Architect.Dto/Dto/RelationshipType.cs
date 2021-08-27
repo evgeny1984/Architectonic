@@ -1,4 +1,4 @@
-﻿namespace Ar.Generator.Data.Models.EntityModel
+﻿namespace Architect.Dto.Dto
 {
     public enum RelationshipType
     {
