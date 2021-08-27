@@ -1,12 +1,22 @@
 version: '3.4'
 
 services:
+  architect-messenger:
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=user1
+    ports:
+      - "15672:15672"
+
   architect-web:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
       - AppSettings__IdentityUrl=http://architect-gateway/identity
       - AppSettings__ServiceGatewayUrl=http://architect-gateway
+      - EventBus__EventBusConnection=architect-messenger
+      - EventBus__EventBusUserName=user
+      - EventBus__EventBusPassword=user1
     ports:
       - "80"
 
@@ -49,9 +59,11 @@ services:
   # Databases
   sql-data-generatordb:
     environment:
-      - MYSQL_ROOT_PASSWORD=Pass@word
-      - MYSQL_DATABASE=generatordb
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=admin
+      - DEBUG=false
+      - DB_USER=admin
+      - DB_PASS=admin
+      - DB_NAME=GeneratorDb
+    ports:
+      - "15432:5432"
     volumes:
-      - ${APPDATA-}/docker-volumes/sql-data-generatordb:/var/lib/mysql
+      - ${APPDATA-}/docker-volumes/sql-data-dataaccesslayer:/var/lib/postgresql/data

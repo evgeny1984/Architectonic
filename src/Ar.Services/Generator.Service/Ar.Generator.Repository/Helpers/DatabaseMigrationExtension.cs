@@ -1,5 +1,4 @@
-﻿using Ar.Generator.Repository;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Ar.Generator.Repository.Helpers
 {

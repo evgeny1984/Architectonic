@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Architect.Dto.Dto;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ar.Generator.Data.Models.EntityModel
 {
