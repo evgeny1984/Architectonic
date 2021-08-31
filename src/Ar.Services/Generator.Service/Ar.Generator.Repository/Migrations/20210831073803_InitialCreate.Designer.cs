@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Ar.Generator.Repository.Migrations
 {
     [DbContext(typeof(GeneratorDbContext))]
-    [Migration("20210826090129_InitialCreate")]
+    [Migration("20210831073803_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -386,7 +386,7 @@ namespace Ar.Generator.Repository.Migrations
                     b.ToTable("EnvironmentVar");
                 });
 
-            modelBuilder.Entity("Ar.Generator.Data.Models.Deployments.PersistenVolumeClaim", b =>
+            modelBuilder.Entity("Ar.Generator.Data.Models.Deployments.PersistentVolumeClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -413,7 +413,7 @@ namespace Ar.Generator.Repository.Migrations
                     b.HasIndex("KubernetesId")
                         .IsUnique();
 
-                    b.ToTable("PersistenVolumeClaim");
+                    b.ToTable("PersistentVolumeClaim");
                 });
 
             modelBuilder.Entity("Ar.Generator.Data.Models.EntityModel.DbEngine", b =>
@@ -898,11 +898,11 @@ namespace Ar.Generator.Repository.Migrations
                     b.Navigation("Kubernetes");
                 });
 
-            modelBuilder.Entity("Ar.Generator.Data.Models.Deployments.PersistenVolumeClaim", b =>
+            modelBuilder.Entity("Ar.Generator.Data.Models.Deployments.PersistentVolumeClaim", b =>
                 {
                     b.HasOne("Ar.Generator.Data.Models.Deployments.Kubernetes", "Kubernetes")
                         .WithOne("PVC")
-                        .HasForeignKey("Ar.Generator.Data.Models.Deployments.PersistenVolumeClaim", "KubernetesId")
+                        .HasForeignKey("Ar.Generator.Data.Models.Deployments.PersistentVolumeClaim", "KubernetesId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

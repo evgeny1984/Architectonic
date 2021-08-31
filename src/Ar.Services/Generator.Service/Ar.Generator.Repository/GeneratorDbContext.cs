@@ -45,7 +45,7 @@ namespace Ar.Generator.Repository
         public virtual DbSet<DockerComposeService> DockerComposeServices { get; set; }
         public virtual DbSet<EnvironmentVar> EnvironmentVars { get; set; }
         public virtual DbSet<Kubernetes> Kuberneteses { get; set; }
-        public virtual DbSet<PersistenVolumeClaim> PersistenVolumeClaims { get; set; }
+        public virtual DbSet<PersistentVolumeClaim> PersistentVolumeClaims { get; set; }
         public virtual DbSet<DbEngine> DbEngines { get; set; }
         public virtual DbSet<DbEntity> DbEntities { get; set; }
         public virtual DbSet<DbEntityField> DbEntityFields { get; set; }
