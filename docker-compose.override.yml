@@ -7,6 +7,8 @@ services:
       - RABBITMQ_DEFAULT_PASS=user1
     ports:
       - "15672:15672"
+    volumes:
+      - '${APPDATA-}/docker-volumes/rabbitmq_data:/data'
 
   architect-web:
     environment:

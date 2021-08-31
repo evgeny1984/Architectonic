@@ -38,6 +38,18 @@ namespace Ar.Generator.Repository.Helpers
                     .Include<Microservice, MicroserviceDto>()
                     .ReverseMap();
 
+                cfg.CreateMap<ClientApplication, ClientApplicationDto>()
+                    .ReverseMap();
+
+                cfg.CreateMap<FaaS, FaasDto>()
+                    .ReverseMap();
+
+                cfg.CreateMap<EventBus, EventBusDto>()
+                    .ReverseMap();
+
+                cfg.CreateMap<Microservice, MicroserviceDto>()
+                    .ReverseMap();
+
                 cfg.CreateMap<BpmnActivity, BpmnActivityDto>()
                     .ReverseMap();
 
@@ -66,6 +78,9 @@ namespace Ar.Generator.Repository.Helpers
                     .Include<SagaPattern, SagaPatternDto>()
                     .ReverseMap();
 
+                cfg.CreateMap<SagaPattern, SagaPatternDto>()
+                    .ReverseMap();
+
                 cfg.CreateMap<DockerCompose, DockerComposeDto>()
                     .ReverseMap();
 
@@ -82,9 +97,6 @@ namespace Ar.Generator.Repository.Helpers
                     .ReverseMap();
 
                 cfg.CreateMap<Kubernetes, KubernetesDto>()
-                    .ReverseMap();
-
-                cfg.CreateMap<Microservice, MicroserviceDto>()
                     .ReverseMap();
 
                 cfg.CreateMap<PersistentVolumeClaim, PersistentVolumeClaimDto>()
