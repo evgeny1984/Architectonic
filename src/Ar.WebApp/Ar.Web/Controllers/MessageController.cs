@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Architect.Dto.Dto.Camunda;
+using Architect.Dto.Dto;
 
 namespace Ar.Web.Controllers
 {

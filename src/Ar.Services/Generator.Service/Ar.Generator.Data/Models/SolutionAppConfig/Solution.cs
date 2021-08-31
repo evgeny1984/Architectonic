@@ -20,6 +20,10 @@ namespace Ar.Generator.Data.Models.SolutionAppConfig
 
         public string RepositoryName { get; set; }
 
+        public string Description { get; set; }
+
+        public string AdlContent { get; set; }
+
         #endregion
 
         #region Relationships

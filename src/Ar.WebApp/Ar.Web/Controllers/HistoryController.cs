@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using Ar.Web.Helpers;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Architect.Dto.Dto;
 
 namespace Ar.Web.Controllers
 {

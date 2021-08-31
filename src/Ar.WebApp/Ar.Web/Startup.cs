@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Ar.Web.Helpers;
 using Architect.Dto.Exceptions;
+using Architect.Dto.Dto;
 
 namespace Ar.Web
 {
@@ -25,14 +26,11 @@ namespace Ar.Web
         {
             services.AddControllersWithViews();
             services.AddHttpClient<IHttpClientService, BaseHttpClient>();
-
-            // Configure strongly typed settings objects
-            var appSettingsSection = Configuration.GetSection(nameof(AppSettings));
-            services.Configure<AppSettings>(appSettingsSection);
-
-            // Configure jwt authentication
+            
             var appSettings = new AppSettings();
-            appSettingsSection.Bind(appSettings);
+            Configuration.Bind(appSettings);
+
+            services.Configure<AppSettings>(options => Configuration.Bind(options));
 
             services.AddMvc(option => option.EnableEndpointRouting = false).AddNewtonsoftJson(options =>
             {

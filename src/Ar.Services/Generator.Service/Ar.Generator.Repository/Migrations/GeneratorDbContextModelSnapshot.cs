@@ -642,6 +642,12 @@ namespace Ar.Generator.Repository.Migrations
                     b.Property<DateTime>("AddedAt")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<string>("AdlContent")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("timestamp without time zone");
 
