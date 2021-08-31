@@ -1,16 +1,16 @@
 ﻿using Ar.Messages.EventBus.EventBus.Events;
 using Architect.Dto.Dto;
 
-namespace Ar.Generator.Service.IntegrationEvents.Events
+namespace Architect.Dto.Events
 {
 
     public record SemanticModelCreatedIntegrationEvent : IntegrationEvent
     {
         public SolutionDto Solution { get; private init; }
 
-        public SemanticModelCreatedIntegrationEvent(SolutionDto solution)
-        {
-            Solution = solution;
-        }
+    public SemanticModelCreatedIntegrationEvent(SolutionDto solution)
+    {
+        Solution = solution;
     }
+}
 }

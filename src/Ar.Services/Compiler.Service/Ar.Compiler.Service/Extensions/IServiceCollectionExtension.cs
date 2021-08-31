@@ -1,43 +1,21 @@
-﻿using Ar.Generator.Repository;
-using Ar.Generator.Repository.Wrapper;
-using Ar.Generator.Service.IntegrationEvents.EventHandling;
-using Ar.Generator.Service.Services;
+﻿using Ar.Compiler.Service.Services;
 using Ar.Messages.EventBus.EventBus;
 using Ar.Messages.EventBus.EventBus.Abstractions;
 using Ar.Messages.EventBus.EventBusRabbitMQ;
 using Architect.Dto.Dto;
-using Architect.Dto.Events;
 using Autofac;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
 
-namespace Ar.Generator.Service.Extensions
+namespace Ar.Compiler.Service.Extensions
 {
     public static class IServiceCollectionExtension
     {
-        public static IServiceCollection AddPostgreDbContext(this IServiceCollection services, string connectionString = "")
-        {
-            services.AddDbContext<GeneratorDbContext>(options =>
-               options.UseNpgsql(connectionString, builder =>
-               {
-                   builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
-               }));
-
-            return services;
-        }
-
-        public static IServiceCollection AddRepositoryWrapper(this IServiceCollection services)
-        {
-            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
-
-            return services;
-        }
 
         public static IServiceCollection AddInternalServices(this IServiceCollection services)
         {
-            services.AddTransient<ISolutionService, SolutionService>();
+            services.AddTransient<IRecognitionService, RecognitionService>();
+            services.AddTransient<ITransformationService, TransformationService>();
 
             return services;
         }
@@ -60,8 +38,6 @@ namespace Ar.Generator.Service.Extensions
 
             services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
 
-            services.AddTransient<SemanticModelCreatedIntegrationEvent>();
-            services.AddTransient<SemanticModelCreatedIntegrationEventHandler>();
         }
 
     }

@@ -21,12 +21,11 @@ namespace Ar.Generator.Repository.Repositories
 
         public async Task<int> CreateAsync(SolutionDto entityDto)
         {
-            int id = 0;
             var newSolution = AutomapperConfig.Mapper.Map<Solution>(entityDto);
             _Context.Solutions.Add(newSolution);
-            id = await _Context.SaveChangesAsync();
+            int insertedAmount = await _Context.SaveChangesAsync();
 
-            return id;
+            return newSolution.Id;
         }
 
         public async Task DeleteAsync(int id)

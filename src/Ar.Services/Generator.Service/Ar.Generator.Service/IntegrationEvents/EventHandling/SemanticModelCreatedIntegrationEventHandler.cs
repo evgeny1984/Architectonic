@@ -1,6 +1,7 @@
 ﻿using Ar.Generator.Repository.Wrapper;
-using Ar.Generator.Service.IntegrationEvents.Events;
+using Ar.Generator.Service.Properties;
 using Ar.Messages.EventBus.EventBus.Abstractions;
+using Architect.Dto.Events;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace Ar.Generator.Service.IntegrationEvents.EventHandling
 
         public async Task Handle(SemanticModelCreatedIntegrationEvent @event)
         {
-            _logger.LogInformation("----- Handling integration event: {IntegrationEventId} at {AppName} - ({@IntegrationEvent})", @event.Id, @event);
+            //_logger.LogInformation("----- Handling integration event: {IntegrationEventId} at {AppName} - ({@IntegrationEvent})", @event.Id, Resources.AppName);
 
             await _repositoryWrapper.Solution.CreateAsync(@event.Solution);
         }
