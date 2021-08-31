@@ -553,7 +553,7 @@ namespace Ar.Generator.Repository.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PersistenVolumeClaim",
+                name: "PersistentVolumeClaim",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -566,9 +566,9 @@ namespace Ar.Generator.Repository.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PersistenVolumeClaim", x => x.Id);
+                    table.PrimaryKey("PK_PersistentVolumeClaim", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PersistenVolumeClaim_Kubernetes_KubernetesId",
+                        name: "FK_PersistentVolumeClaim_Kubernetes_KubernetesId",
                         column: x => x.KubernetesId,
                         principalTable: "Kubernetes",
                         principalColumn: "Id",
@@ -745,8 +745,8 @@ namespace Ar.Generator.Repository.Migrations
                 column: "DbEngineId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PersistenVolumeClaim_KubernetesId",
-                table: "PersistenVolumeClaim",
+                name: "IX_PersistentVolumeClaim_KubernetesId",
+                table: "PersistentVolumeClaim",
                 column: "KubernetesId",
                 unique: true);
 
@@ -797,7 +797,7 @@ namespace Ar.Generator.Repository.Migrations
                 name: "GatewayRoute");
 
             migrationBuilder.DropTable(
-                name: "PersistenVolumeClaim");
+                name: "PersistentVolumeClaim");
 
             migrationBuilder.DropTable(
                 name: "ServiceToEnvVars");

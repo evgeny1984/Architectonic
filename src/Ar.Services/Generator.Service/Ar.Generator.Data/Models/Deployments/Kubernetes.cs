@@ -30,7 +30,7 @@ namespace Ar.Generator.Data.Models.Deployments
 
         #region Relationships
 
-        public PersistenVolumeClaim PVC { get; set; }
+        public PersistentVolumeClaim PVC { get; set; }
 
         public ICollection<EnvironmentVar> EnvVars { get; set; }
 

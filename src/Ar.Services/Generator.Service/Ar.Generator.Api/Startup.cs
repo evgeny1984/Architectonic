@@ -2,8 +2,11 @@ using Ar.Generator.Service.Extensions;
 using Ar.Generator.Service.IntegrationEvents.EventHandling;
 using Ar.Generator.Service.IntegrationEvents.Events;
 using Ar.Messages.EventBus.EventBus.Abstractions;
+using Ar.Messages.EventBus.EventBusRabbitMQ;
 using Architect.Dto.Dto;
 using Architect.Dto.Exceptions;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,6 +18,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -35,7 +39,7 @@ namespace Ar.Generator.Api
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             var appSettings = new AppSettings();
             Configuration.Bind(appSettings);
@@ -52,9 +56,40 @@ namespace Ar.Generator.Api
                 options.Providers.Add<GzipCompressionProvider>();
             });
 
+            // Add event bus
+            services.AddSingleton<IRabbitMQPersistentConnection>(sp =>
+            {
+                var logger = sp.GetRequiredService<ILogger<DefaultRabbitMQPersistentConnection>>();
+
+                var factory = new ConnectionFactory()
+                {
+                    HostName = appSettings.EventBusConnection,
+                    DispatchConsumersAsync = true
+                };
+
+                if (!string.IsNullOrEmpty(appSettings.EventBusUserName))
+                {
+                    factory.UserName = appSettings.EventBusUserName;
+                }
+
+                if (!string.IsNullOrEmpty(appSettings.EventBusPassword))
+                {
+                    factory.Password = appSettings.EventBusPassword;
+                }
+
+                var retryCount = 5;
+                if (appSettings.EventBusRetryCount != 0)
+                {
+                    retryCount = appSettings.EventBusRetryCount;
+                }
+
+                return new DefaultRabbitMQPersistentConnection(factory, logger, retryCount);
+            });
+
             services.RegisterEventBus(appSettings);
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo 
@@ -67,6 +102,11 @@ namespace Ar.Generator.Api
                 var filePath = Path.Combine(AppContext.BaseDirectory, "Ar.Generator.Api.xml");
                 c.IncludeXmlComments(filePath, true);
             });
+
+            var container = new ContainerBuilder();
+            container.Populate(services);
+
+            return new AutofacServiceProvider(container.Build());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

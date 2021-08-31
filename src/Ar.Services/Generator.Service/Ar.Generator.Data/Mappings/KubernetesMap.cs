@@ -17,7 +17,7 @@ namespace Ar.Generator.Data.Mappings
             modelBuilder
                .HasOne(e => e.PVC)
                .WithOne(e => e.Kubernetes)
-               .HasForeignKey<PersistenVolumeClaim>(e => e.KubernetesId)
+               .HasForeignKey<PersistentVolumeClaim>(e => e.KubernetesId)
                .OnDelete(DeleteBehavior.Restrict);
         }
     }

@@ -2,8 +2,8 @@
 
 namespace Ar.Generator.Data.Models.Deployments
 {
-    [Table(nameof(PersistenVolumeClaim))]
-    public class PersistenVolumeClaim : BaseEntity
+    [Table(nameof(PersistentVolumeClaim))]
+    public class PersistentVolumeClaim : BaseEntity
     {
 
         #region FKs

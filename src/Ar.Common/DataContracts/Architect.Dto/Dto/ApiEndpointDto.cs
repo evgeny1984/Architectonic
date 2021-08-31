@@ -1,12 +1,9 @@
-﻿using Architect.Dto.Dto;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
 
-namespace Ar.Generator.Data.Models.Applications
+namespace Architect.Dto.Dto
 {
-    [Table(nameof(ApiEndpoint))]
-    public class ApiEndpoint : BaseEntity
+    public class ApiEndpointDto : BaseEntityDto
     {
-
         #region FKs
 
         public int MicroserviceId { get; set; }
@@ -27,7 +24,7 @@ namespace Ar.Generator.Data.Models.Applications
 
         #region Relationships
 
-        public Microservice Microservice { get; set; }
+        public MicroserviceDto Microservice { get; set; }
 
         #endregion
 
