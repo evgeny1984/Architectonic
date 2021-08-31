@@ -1,17 +1,15 @@
 using Ar.Generator.Service.Extensions;
 using Ar.Generator.Service.IntegrationEvents.EventHandling;
-using Ar.Generator.Service.IntegrationEvents.Events;
 using Ar.Messages.EventBus.EventBus.Abstractions;
 using Ar.Messages.EventBus.EventBusRabbitMQ;
 using Architect.Dto.Dto;
+using Architect.Dto.Events;
 using Architect.Dto.Exceptions;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,12 +18,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RabbitMQ.Client;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Ar.Generator.Api
 {
@@ -63,25 +58,22 @@ namespace Ar.Generator.Api
 
                 var factory = new ConnectionFactory()
                 {
-                    HostName = appSettings.EventBusConnection,
+                    HostName = appSettings.EventBusSettings?.EventBusConnection,
                     DispatchConsumersAsync = true
                 };
 
-                if (!string.IsNullOrEmpty(appSettings.EventBusUserName))
+                if (!string.IsNullOrEmpty(appSettings.EventBusSettings?.EventBusUserName))
                 {
-                    factory.UserName = appSettings.EventBusUserName;
+                    factory.UserName = appSettings.EventBusSettings?.EventBusUserName;
                 }
 
-                if (!string.IsNullOrEmpty(appSettings.EventBusPassword))
+                if (!string.IsNullOrEmpty(appSettings.EventBusSettings?.EventBusPassword))
                 {
-                    factory.Password = appSettings.EventBusPassword;
+                    factory.Password = appSettings.EventBusSettings?.EventBusPassword;
                 }
 
                 var retryCount = 5;
-                if (appSettings.EventBusRetryCount != 0)
-                {
-                    retryCount = appSettings.EventBusRetryCount;
-                }
+                retryCount = appSettings.EventBusSettings?.EventBusRetryCount ?? 5;
 
                 return new DefaultRabbitMQPersistentConnection(factory, logger, retryCount);
             });

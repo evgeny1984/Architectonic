@@ -1,0 +1,40 @@
+﻿using Ar.Compiler.Service.Services;
+using Ar.Messages.EventBus.EventBus.Abstractions;
+using Architect.Dto.Dto;
+using Architect.Dto.Events;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
+
+namespace Ar.Compiler.Api.Controllers
+{
+    public class RecognitionController : Controller
+    {
+        private readonly ILogger<RecognitionController> _logger;
+        private IRecognitionService _recognitionService;
+
+        public RecognitionController(IRecognitionService recognitionService, ILogger<RecognitionController> logger)
+        {
+            _logger = logger;
+            _recognitionService = recognitionService;
+        }
+
+        [Route("recognize")]
+        [HttpPost]
+        [ProducesResponseType((int)HttpStatusCode.Accepted)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<ActionResult> RecognizeAsync([FromBody] FileDto adlFile)
+        {
+            // TODO Call the recognition service to interpret the ADL
+            await _recognitionService.RecognizeProvidedAdl(adlFile);
+
+            return Accepted();
+        }
+
+    }
+}
