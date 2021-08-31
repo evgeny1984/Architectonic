@@ -137,7 +137,8 @@ export class SolutionsOverviewComponent implements OnInit {
       if (selectedSolution) {
         let navigationExtras: NavigationExtras = {
           queryParams: {
-            "selectedSolutionId": selectedSolution.id
+            "selectedSolutionId": selectedSolution.id,
+            "adlContent": selectedSolution.adlContent
           }
         };
         this.router.navigate(['/adl-editor'], navigationExtras);
