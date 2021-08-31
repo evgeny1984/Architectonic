@@ -1,40 +1,38 @@
-<header>
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">Saga Pattern</a>
-      <button class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target=".navbar-collapse"
-              aria-label="Toggle navigation"
-              [attr.aria-expanded]="isExpanded"
-              (click)="toggle()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
-           [ngClass]="{ show: isExpanded }">
-        <ul class="navbar-nav flex-grow">
-          <li class="nav-item"
-              [routerLinkActive]="['link-active']">
-            <a class="nav-link"
-               [routerLink]="['/']"
-               [routerLinkActive]="['active']"
-               [routerLinkActiveOptions]="{ exact: true }">
-              <span class="fa fa-code-fork"></span> Modeler
-            </a>
-          </li>
+<nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
+  <a class="navbar-brand" [routerLink]="['/']">Architectonic DSL</a>
 
-          <li [routerLinkActive]="['link-active']" class="nav-item">
-            <a [routerLink]="['/history']"
-               [routerLinkActive]="['active']"
-               [routerLinkActiveOptions]="{ exact: true }"
-               class="nav-link">
-              <span class="fa fa-history"></span> History
-            </a>
-          </li>
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-label="Toggle navigation"
+          [attr.aria-expanded]="isExpanded"
+          (click)="toggle()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
+  <div class="navbar-collapse d-sm-inline-flex flex-sm-row-reverse" [class.collapse]="!isExpanded" id="navbarSupportedContent">
+
+    <ul class="navbar-nav flex-grow">
+      <li class="nav-item active"
+          [routerLinkActive]="['link-active']">
+        <a class="nav-link"
+           [routerLink]="['']"
+           [routerLinkActive]="['active']"
+           [routerLinkActiveOptions]="{ exact: true }">
+          <span class="fa fa-th-list"></span> Solutions Overview
+        </a>
+      </li>
+      <li class="nav-item active"
+          [routerLinkActive]="['link']">
+        <a class="nav-link"
+           [routerLink]="['adl-editor']"
+           [routerLinkActive]="['active']"
+           [routerLinkActiveOptions]="{ exact: true }">
+          <span class="fa fa-language"></span> ADL Editor
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</nav>

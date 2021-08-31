@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { DxTextAreaModule } from 'devextreme-angular';
 import { DxAccordionModule } from 'devextreme-angular/ui/accordion';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxChartModule } from 'devextreme-angular/ui/chart';
@@ -42,48 +43,49 @@ import { DxValidatorModule } from 'devextreme-angular/ui/validator';
  * Sort the items alphabetically to prevent duplicates
  */
 @NgModule({
-    exports: [
-        DxAccordionModule,
-        DxButtonModule,
-        DxChartModule,
-        DxCheckBoxModule,
-        DxColorBoxModule,
-        DxContextMenuModule,
-        DxDataGridModule,
-        DxDateBoxModule,
-        DxDrawerModule,
-        DxDropDownBoxModule,
-        DxFilterBuilderModule,
-        DxFileUploaderModule,
-        DxFormModule,
-        DxListModule,
-        DxLoadIndicatorModule,
-        DxLoadPanelModule,
-        DxMenuModule,
-        DxMultiViewModule,
-        DxNumberBoxModule,
-        DxPopupModule,
-        DxRadioGroupModule,
-        DxRangeSelectorModule,
-        DxResizableModule,
-        DxScrollViewModule,
-        DxSelectBoxModule,
-        DxSwitchModule,
-        DxTabsModule,
-        DxTagBoxModule,
-        DxTextBoxModule,
-        DxTileViewModule,
-        DxToolbarModule,
-        DxTreeListModule,
-        DxTreeViewModule,
-        DxValidationSummaryModule,
-        DxValidatorModule,
-        DxValidationGroupModule
-    ],
-    declarations: [],
-    providers: [
+  exports: [
+    DxAccordionModule,
+    DxButtonModule,
+    DxChartModule,
+    DxCheckBoxModule,
+    DxColorBoxModule,
+    DxContextMenuModule,
+    DxDataGridModule,
+    DxDateBoxModule,
+    DxDrawerModule,
+    DxDropDownBoxModule,
+    DxFilterBuilderModule,
+    DxFileUploaderModule,
+    DxFormModule,
+    DxListModule,
+    DxLoadIndicatorModule,
+    DxLoadPanelModule,
+    DxMenuModule,
+    DxMultiViewModule,
+    DxNumberBoxModule,
+    DxPopupModule,
+    DxRadioGroupModule,
+    DxRangeSelectorModule,
+    DxResizableModule,
+    DxScrollViewModule,
+    DxSelectBoxModule,
+    DxSwitchModule,
+    DxTabsModule,
+    DxTagBoxModule,
+    DxTextBoxModule,
+    DxTextAreaModule,
+    DxTileViewModule,
+    DxToolbarModule,
+    DxTreeListModule,
+    DxTreeViewModule,
+    DxValidationSummaryModule,
+    DxValidatorModule,
+    DxValidationGroupModule
+  ],
+  declarations: [],
+  providers: [
 
-    ]
+  ]
 })
 export class DevExtremeModule {
 }

@@ -1,0 +1,29 @@
+<div #maindiv class="container-fluid maindiv d-flex flex-column h-100">
+
+  <h1>Solutions Overview</h1>
+
+  <dx-data-grid id="solutionsGrid"
+                class="flex-grow-1"
+                #solutionsGrid
+                [height]="gridHeight"
+                [dataSource]="solutions"
+                [showBorders]="true"
+                [wordWrapEnabled]="true"
+                (onRowDblClick)="openSelectedSolution($event)"
+                (onRowClick)="onSelectSolution($event)"
+                (onToolbarPreparing)="onToolbarPreparing($event)">
+
+    <dxo-load-panel [enabled]="true"></dxo-load-panel>
+    <dxo-search-panel [visible]="true"
+                      [highlightCaseSensitive]="true"></dxo-search-panel>
+    <dxo-group-panel [visible]="true"></dxo-group-panel>
+    <dxo-selection mode="single"></dxo-selection>
+
+    <dxi-column dataField="name" caption="Name" [width]="350"></dxi-column>
+    <dxi-column dataField="description" caption="Description" [width]="450"></dxi-column>
+    <dxi-column dataField="addedAt" caption="Created At" dataType="date" [width]="250"></dxi-column>
+    <dxi-column dataField="repository" caption="Repository"></dxi-column>
+
+  </dx-data-grid>
+
+</div>

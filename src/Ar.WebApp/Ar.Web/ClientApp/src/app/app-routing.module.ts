@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => import('./features/processes/processes.module').then(m => m.ProcessesModule)  },
-  { path: 'history', loadChildren: () => import('./features/processes/processes.module').then(m => m.ProcessesModule)  },
-  { path: 'modeler', loadChildren: () => import('./features/modeler/modeler.module').then(m => m.ModelerModule)  }
+  { path: '', loadChildren: () => import('./features/solutions-overview/solutions-overview.module').then(m => m.SolutionsOverviewModule) },
+  { path: 'adl-editor', loadChildren: () => import('./features/adl-editor/adl-editor.module').then(m => m.AdlEditorModule) }
 ];
 
 @NgModule({

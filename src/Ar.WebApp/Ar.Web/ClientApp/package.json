@@ -1,5 +1,5 @@
 {
-  "name": "saga.workflow",
+  "name": "architectonic.dsl",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -38,7 +38,9 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.6.0",
     "jszip": "3.5.0",
+    "monaco-editor": "^0.24.0",
     "ngx-bootstrap": "6.1.0",
+    "ngx-monaco-editor": "^12.0.0",
     "oidc-client": "^1.9.1",
     "popper.js": "^1.16.0",
     "postcss": "^8.3.0",

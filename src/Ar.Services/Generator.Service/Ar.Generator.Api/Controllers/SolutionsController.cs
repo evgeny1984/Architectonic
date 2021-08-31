@@ -20,9 +20,9 @@ namespace Ar.Generator.Api.Controllers
             _logger = logger;
         }
 
-        // GET: api/solution
+        // GET: api/solutions
         [HttpGet]
-        public async Task<IEnumerable<SolutionDto>> GetMappingTables()
+        public async Task<IEnumerable<SolutionDto>> GetSolutions()
         {
             return await _solutionService.GetAll();
         }

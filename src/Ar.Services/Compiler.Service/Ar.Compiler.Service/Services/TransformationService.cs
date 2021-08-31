@@ -12,6 +12,8 @@ namespace Ar.Compiler.Service.Services
             {
                 Name = adlFile.Name,
                 RepositoryName = "test",
+                Description = adlFile.Description,
+                AdlContent = adlFile.Body,
                 Applications = new List<ApplicationDto>(),
                 Patterns = new List<DesignPatternDto>(),
                 SolutionStructure = new List<FolderDto>(),
