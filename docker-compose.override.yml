@@ -14,15 +14,15 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
-      - AppSettings__IdentityUrl=http://architect-gateway/identity
-      - AppSettings__ServiceGatewayUrl=http://architect-gateway
+      - IdentityUrl=http://architect-gateway/identity
+      - ServiceGatewayUrl=http://architect-gateway
       - EventBusSettings__EventBusConnection=architect-messenger
       - EventBusSettings__EventBusUserName=user
       - EventBusSettings__EventBusPassword=user1
       - EventBusSettings__SubscriptionClientName=Web
       - EventBusSettings__EventBusRetryCount=5
     ports:
-      - "80"
+      - "51841:80"
 
   architect-supplier:
     environment:
@@ -42,7 +42,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
-      - ConnectionStrings__MySqlProvider=server=sql-data-generatordb;database=generatordb;userid=admin;password=admin
+      - ConnectionStrings__DataAccessPostgreProvider=Host=sql-data-generatordb;Port=5432;Username=admin;Password=admin;Database=GeneratorDb;
       - EventBusSettings__EventBusConnection=architect-messenger
       - EventBusSettings__EventBusUserName=user
       - EventBusSettings__EventBusPassword=user1

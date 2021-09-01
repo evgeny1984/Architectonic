@@ -1,19 +1,15 @@
 ﻿using Ar.Compiler.Service.Services;
-using Ar.Messages.EventBus.EventBus.Abstractions;
 using Architect.Dto.Dto;
-using Architect.Dto.Events;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
 namespace Ar.Compiler.Api.Controllers
 {
-    public class RecognitionController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class RecognitionController : ControllerBase
     {
         private readonly ILogger<RecognitionController> _logger;
         private IRecognitionService _recognitionService;

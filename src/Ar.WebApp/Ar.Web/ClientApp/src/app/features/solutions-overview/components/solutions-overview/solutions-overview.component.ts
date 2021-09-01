@@ -96,7 +96,7 @@ export class SolutionsOverviewComponent implements OnInit {
   }
 
   public createNewSolution() {
-    // Navigate to the diagram page and create a new process diagram
+    // Navigate to the adl editor page and create a new solution
     this.router.navigate(['/adl-editor']);
   }
 

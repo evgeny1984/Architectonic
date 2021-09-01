@@ -11,7 +11,7 @@ namespace Ar.Compiler.Service.Services
             SolutionDto semanticModel = new SolutionDto()
             {
                 Name = adlFile.Name,
-                RepositoryName = "test",
+                RepositoryName = "https://github.com/username/userepository.git",
                 Description = adlFile.Description,
                 AdlContent = adlFile.Body,
                 Applications = new List<ApplicationDto>(),

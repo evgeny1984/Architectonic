@@ -76,7 +76,7 @@ namespace Ar.Common.Helpers
             return result;
         }
 
-        public async Task<T> Post<T>(string queryString, object content) where T : new()
+        public async Task<T> Post<T>(string queryString, object content)
         {
             using (var httpContent = new StringContent(JsonConvert.SerializeObject(content), Encoding.UTF8, "application/json"))
             {
@@ -84,7 +84,7 @@ namespace Ar.Common.Helpers
             }
         }
 
-        public async Task<T> Post<T>(string queryString, HttpContent httpContent) where T : new()
+        public async Task<T> Post<T>(string queryString, HttpContent httpContent)
         {
             T result = default;
             try
