@@ -8,13 +8,13 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
-WORKDIR /src
 
 #Install nodejs
 RUN apt-get update -yq && apt-get upgrade -yq && apt-get install -yq curl git nano
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && apt-get install -yq nodejs build-essential
 RUN npm install -g npm
 
+WORKDIR /src
 COPY ["src/Ar.WebApp/Ar.Web/Ar.Web.csproj", "src/Ar.WebApp/Ar.Web/"]
 COPY ["src/Ar.Common/Helpers/Common/Ar.Common.Helpers.csproj", "src/Ar.Common/Helpers/Common/"]
 COPY ["src/Ar.Common/DataContracts/Architect.Dto/Architect.Dto.csproj", "src/Ar.Common/DataContracts/Architect.Dto/"]

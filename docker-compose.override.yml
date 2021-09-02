@@ -12,7 +12,7 @@ services:
 
   architect-web:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Release
       - ASPNETCORE_URLS=http://+:80
       - IdentityUrl=http://architect-gateway/identity
       - ServiceGatewayUrl=http://architect-gateway
@@ -26,21 +26,21 @@ services:
 
   architect-supplier:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Release
       - ASPNETCORE_URLS=http://+:80
     ports:
-      - "80"
+      - "9004:80"
 
   architect-notification:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Release
       - ASPNETCORE_URLS=http://+:80
     ports:
-      - "80"
+      - "9003:80"
 
   architect-generator:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Release
       - ASPNETCORE_URLS=http://+:80
       - ConnectionStrings__DataAccessPostgreProvider=Host=sql-data-generatordb;Port=5432;Username=admin;Password=admin;Database=GeneratorDb;
       - EventBusSettings__EventBusConnection=architect-messenger
@@ -49,11 +49,11 @@ services:
       - EventBusSettings__SubscriptionClientName=Web
       - EventBusSettings__EventBusRetryCount=5
     ports:
-      - "80"
+      - "9002:80"
 
   architect-compiler:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Release
       - ASPNETCORE_URLS=http://+:80
       - EventBusSettings__EventBusConnection=architect-messenger
       - EventBusSettings__EventBusUserName=user
@@ -61,11 +61,11 @@ services:
       - EventBusSettings__SubscriptionClientName=Web
       - EventBusSettings__EventBusRetryCount=5
     ports:
-      - "80"
+      - "9001:80"
 
   architect-gateway:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Release
       - ASPNETCORE_URLS=http://+:80
     ports:
       - "5000:80"

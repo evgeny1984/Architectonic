@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Ar.Compiler.Api
@@ -88,8 +89,11 @@ namespace Ar.Compiler.Api
                     Description = "Architect Engine Project Compiler Microservice API",
                     Contact = new OpenApiContact() { Name = "Evgeny Volynsky", Email = "evgeny.volynsky@tum.de" }
                 });
-                var filePath = Path.Combine(AppContext.BaseDirectory, "Ar.Compiler.Api.xml");
-                c.IncludeXmlComments(filePath, true);
+
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath, true);
             });
 
             var container = new ContainerBuilder();

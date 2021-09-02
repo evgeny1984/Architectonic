@@ -21,6 +21,7 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.IO.Compression;
+using System.Reflection;
 
 namespace Ar.Generator.Api
 {
@@ -91,8 +92,11 @@ namespace Ar.Generator.Api
                     Description = "Architect Engine Project Generator Microservice API",
                     Contact = new OpenApiContact() { Name = "Evgeny Volynsky", Email = "evgeny.volynsky@tum.de" }
                 });
-                var filePath = Path.Combine(AppContext.BaseDirectory, "Ar.Generator.Api.xml");
-                c.IncludeXmlComments(filePath, true);
+
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath, true);
             });
 
             var container = new ContainerBuilder();
