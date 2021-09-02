@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using Ar.Web.Helpers;
 using Architect.Dto.Exceptions;
 using Architect.Dto.Dto;
+using Ar.Common.Helpers;
 
 namespace Ar.Web
 {
@@ -37,6 +38,7 @@ namespace Ar.Web
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             });
 
+            services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

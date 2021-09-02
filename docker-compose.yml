@@ -13,6 +13,7 @@ services:
     depends_on:
       - architect-messenger
       - architect-gateway
+    command: /bin/bash -c "until nslookup architect-messenger; do echo waiting for architect-messenger; sleep 60; done;"
 
   architect-supplier:
     image: ${DOCKER_REGISTRY-}arsupplierapi

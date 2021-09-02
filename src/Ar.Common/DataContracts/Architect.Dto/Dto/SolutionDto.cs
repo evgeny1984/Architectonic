@@ -17,7 +17,6 @@ namespace Architect.Dto.Dto
         public string Name { get; set; }
         public string Description { get; set; }
         public string AdlContent { get; set; }
-
         public string RepositoryName { get; set; }
 
         #endregion

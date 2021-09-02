@@ -1,4 +1,5 @@
-﻿using Ar.Web.Helpers;
+﻿using Ar.Common.Helpers;
+using Ar.Web.Helpers;
 using Architect.Dto.Dto;
 using Camunda.Api.Client;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +18,7 @@ namespace Ar.Web.Controllers
         private readonly string _StandardURLParameters = "";
         private IHttpClientService _baseHttpClient;
 
-        public SolutionsController(IHttpClientService baseHttpClient, IOptionsSnapshot<AppSettings> appSettings, ILogger<ProcessDefinitionController> logger)
+        public SolutionsController(IHttpClientService baseHttpClient, IOptionsSnapshot<AppSettings> appSettings, ILogger<SolutionsController> logger)
         {
             _baseHttpClient = baseHttpClient;
             _logger = logger;

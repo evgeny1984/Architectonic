@@ -10,7 +10,7 @@ export class AdlEditorService extends ServiceBase {
   }
 
   uploadAdlContent(adlFile: AdlFile) {
-    return this.post('api/recognize', adlFile);
+    return this.post('api/recognition', adlFile);
   }
 
 }
