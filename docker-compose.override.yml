@@ -46,7 +46,7 @@ services:
       - EventBusSettings__EventBusConnection=architect-messenger
       - EventBusSettings__EventBusUserName=user
       - EventBusSettings__EventBusPassword=user1
-      - EventBusSettings__SubscriptionClientName=Web
+      - EventBusSettings__SubscriptionClientName=Generator
       - EventBusSettings__EventBusRetryCount=5
     ports:
       - "9002:80"
@@ -58,7 +58,7 @@ services:
       - EventBusSettings__EventBusConnection=architect-messenger
       - EventBusSettings__EventBusUserName=user
       - EventBusSettings__EventBusPassword=user1
-      - EventBusSettings__SubscriptionClientName=Web
+      - EventBusSettings__SubscriptionClientName=Compiler
       - EventBusSettings__EventBusRetryCount=5
     ports:
       - "9001:80"

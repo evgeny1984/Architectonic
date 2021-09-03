@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  EventBusSettings__EventBusConnection: architect-messenger
+  EventBusSettings__EventBusRetryCount: "5"
+kind: ConfigMap
+metadata:
+  name: eventbus-settings-configmap

@@ -8,7 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{AB07D834-ACCF-4830-892F-19FAE105B608}"
 	ProjectSection(SolutionItems) = preProject
 		deployment\k8s\kubectl_examples.md = deployment\k8s\kubectl_examples.md
-		deployment\k8s\kustomization.yaml = deployment\k8s\kustomization.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pipelines", "pipelines", "{512F0833-FDD2-4ADE-A249-AEB74C1FBD0D}"
@@ -119,29 +118,37 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ar.Web", "src\Ar.WebApp\Ar.
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{80AA8A36-CFD8-4EDC-9E5E-D23CF5906C55}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configmap", "configmap", "{02CA2714-B513-43B4-A886-6A956F6F520F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configmaps", "configmaps", "{02CA2714-B513-43B4-A886-6A956F6F520F}"
 	ProjectSection(SolutionItems) = preProject
-		deployment\k8s\configmap\.gitkeep = deployment\k8s\configmap\.gitkeep
+		deployment\k8s\base\configmaps\architect-compiler-configmap.yaml = deployment\k8s\base\configmaps\architect-compiler-configmap.yaml
+		deployment\k8s\base\configmaps\architect-generator-configmap.yaml = deployment\k8s\base\configmaps\architect-generator-configmap.yaml
+		deployment\k8s\base\configmaps\architect-web-configmap.yaml = deployment\k8s\base\configmaps\architect-web-configmap.yaml
+		deployment\k8s\base\configmaps\environment-configmap.yaml = deployment\k8s\base\configmaps\environment-configmap.yaml
+		deployment\k8s\base\configmaps\eventbus-settings-configmap.yaml = deployment\k8s\base\configmaps\eventbus-settings-configmap.yaml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", "{417F2720-2CB7-4E75-B1BD-D8E8E7A8C6D4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployments", "deployments", "{417F2720-2CB7-4E75-B1BD-D8E8E7A8C6D4}"
 	ProjectSection(SolutionItems) = preProject
-		deployment\k8s\deployment\.gitkeep = deployment\k8s\deployment\.gitkeep
+		deployment\k8s\base\deployments\architect-compiler.yaml = deployment\k8s\base\deployments\architect-compiler.yaml
+		deployment\k8s\base\deployments\architect-gateway.yaml = deployment\k8s\base\deployments\architect-gateway.yaml
+		deployment\k8s\base\deployments\architect-generator.yaml = deployment\k8s\base\deployments\architect-generator.yaml
+		deployment\k8s\base\deployments\architect-messenger.yaml = deployment\k8s\base\deployments\architect-messenger.yaml
+		deployment\k8s\base\deployments\architect-notification.yaml = deployment\k8s\base\deployments\architect-notification.yaml
+		deployment\k8s\base\deployments\architect-supplier.yaml = deployment\k8s\base\deployments\architect-supplier.yaml
+		deployment\k8s\base\deployments\architect-web.yaml = deployment\k8s\base\deployments\architect-web.yaml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pvc", "pvc", "{B529CB7E-8B57-4AD8-BCB2-F295F181C4A9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "secrets", "secrets", "{CFDD7991-469C-4B0B-BA26-3A0A746B3575}"
 	ProjectSection(SolutionItems) = preProject
-		deployment\k8s\pvc\.gitkeep = deployment\k8s\pvc\.gitkeep
+		deployment\k8s\base\secrets\architect-generator-secret.yaml = deployment\k8s\base\secrets\architect-generator-secret.yaml
+		deployment\k8s\base\secrets\architect-messenger-secret.yaml = deployment\k8s\base\secrets\architect-messenger-secret.yaml
+		deployment\k8s\base\secrets\eventbus-settings-secret.yaml = deployment\k8s\base\secrets\eventbus-settings-secret.yaml
+		deployment\k8s\base\secrets\sql-data-generatordb-secret.yaml = deployment\k8s\base\secrets\sql-data-generatordb-secret.yaml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "secret", "secret", "{CFDD7991-469C-4B0B-BA26-3A0A746B3575}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "statefulsets", "statefulsets", "{C89BE792-E411-4DD1-8917-41D9A9DD0884}"
 	ProjectSection(SolutionItems) = preProject
-		deployment\k8s\secret\.gitkeep = deployment\k8s\secret\.gitkeep
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "statefulset", "statefulset", "{C89BE792-E411-4DD1-8917-41D9A9DD0884}"
-	ProjectSection(SolutionItems) = preProject
-		deployment\k8s\statefulset\.gitkeep = deployment\k8s\statefulset\.gitkeep
+		deployment\k8s\base\statefulsets\sql-data-generatordb.yaml = deployment\k8s\base\statefulsets\sql-data-generatordb.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{A5C9828D-7682-4087-A096-68EB50308AB6}"
@@ -158,6 +165,38 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{06AC75E9-11C1-4FF5-BE93-1FB37CDF0047}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.Tests", "src\Ar.Messages\EventBus\EventBus.Tests\EventBus.Tests.csproj", "{BFD20C9A-0BD0-48E0-AD9B-6C08F2F1FC68}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base", "base", "{DEF7383F-B92A-4E25-8EA4-1A7BF8506459}"
+	ProjectSection(SolutionItems) = preProject
+		deployment\k8s\base\kustomization.yaml = deployment\k8s\base\kustomization.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "overlays", "overlays", "{9BA18667-F347-488F-B4B9-B2B967858549}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test-env", "test-env", "{1A3EAC96-6F09-4A9F-A2C3-FD408DC6433A}"
+	ProjectSection(SolutionItems) = preProject
+		deployment\k8s\overlays\test-env\kustomization.yaml = deployment\k8s\overlays\test-env\kustomization.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ingresses", "ingresses", "{665BD61A-3137-49FC-8613-C8E89718AD87}"
+	ProjectSection(SolutionItems) = preProject
+		deployment\k8s\overlays\test-env\ingresses\architect-web-ingress.yaml = deployment\k8s\overlays\test-env\ingresses\architect-web-ingress.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "namespaces", "namespaces", "{8678B117-3B4B-48F5-A5CD-0B725819EC05}"
+	ProjectSection(SolutionItems) = preProject
+		deployment\k8s\overlays\test-env\namespaces\ar-namespace.yaml = deployment\k8s\overlays\test-env\namespaces\ar-namespace.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pvc", "pvc", "{3945EC22-4AB3-4C2E-920C-80B54D120802}"
+	ProjectSection(SolutionItems) = preProject
+		deployment\k8s\overlays\test-env\pvc\sql-data-generatordb-pvc.yaml = deployment\k8s\overlays\test-env\pvc\sql-data-generatordb-pvc.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cluster-kubeconfigs", "cluster-kubeconfigs", "{2F2701DE-06B1-416B-A62E-9310F3F2FF37}"
+	ProjectSection(SolutionItems) = preProject
+		deployment\k8s\base\cluster-kubeconfigs\local-kube.config = deployment\k8s\base\cluster-kubeconfigs\local-kube.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -319,16 +358,22 @@ Global
 		{74F26752-08FC-49CB-933D-430C7007DD0A} = {D4673537-D54A-4D0E-A40A-B2911BF82E36}
 		{34F2D43F-4CEC-4A20-9111-64E610EA954C} = {E26D346C-FE72-434A-AE4A-F85453447800}
 		{183BBEBB-8A08-4B73-91E3-52AF205C8BD1} = {CF0B624E-E785-40D4-8718-F2484DBE37AE}
-		{02CA2714-B513-43B4-A886-6A956F6F520F} = {AB07D834-ACCF-4830-892F-19FAE105B608}
-		{417F2720-2CB7-4E75-B1BD-D8E8E7A8C6D4} = {AB07D834-ACCF-4830-892F-19FAE105B608}
-		{B529CB7E-8B57-4AD8-BCB2-F295F181C4A9} = {AB07D834-ACCF-4830-892F-19FAE105B608}
-		{CFDD7991-469C-4B0B-BA26-3A0A746B3575} = {AB07D834-ACCF-4830-892F-19FAE105B608}
-		{C89BE792-E411-4DD1-8917-41D9A9DD0884} = {AB07D834-ACCF-4830-892F-19FAE105B608}
+		{02CA2714-B513-43B4-A886-6A956F6F520F} = {DEF7383F-B92A-4E25-8EA4-1A7BF8506459}
+		{417F2720-2CB7-4E75-B1BD-D8E8E7A8C6D4} = {DEF7383F-B92A-4E25-8EA4-1A7BF8506459}
+		{CFDD7991-469C-4B0B-BA26-3A0A746B3575} = {DEF7383F-B92A-4E25-8EA4-1A7BF8506459}
+		{C89BE792-E411-4DD1-8917-41D9A9DD0884} = {DEF7383F-B92A-4E25-8EA4-1A7BF8506459}
 		{A5C9828D-7682-4087-A096-68EB50308AB6} = {E78DFFA1-90B1-48FC-A3EE-258E4DC0D2CE}
 		{B3C4F861-419E-4A27-95E3-6C6CE0E7093A} = {D21F48AF-9088-4DEB-92BE-C07C5B660B26}
 		{BF2DEFA7-3B68-4FA5-9D13-BFABDB3553D2} = {D21F48AF-9088-4DEB-92BE-C07C5B660B26}
 		{06AC75E9-11C1-4FF5-BE93-1FB37CDF0047} = {D21F48AF-9088-4DEB-92BE-C07C5B660B26}
 		{BFD20C9A-0BD0-48E0-AD9B-6C08F2F1FC68} = {06AC75E9-11C1-4FF5-BE93-1FB37CDF0047}
+		{DEF7383F-B92A-4E25-8EA4-1A7BF8506459} = {AB07D834-ACCF-4830-892F-19FAE105B608}
+		{9BA18667-F347-488F-B4B9-B2B967858549} = {AB07D834-ACCF-4830-892F-19FAE105B608}
+		{1A3EAC96-6F09-4A9F-A2C3-FD408DC6433A} = {9BA18667-F347-488F-B4B9-B2B967858549}
+		{665BD61A-3137-49FC-8613-C8E89718AD87} = {1A3EAC96-6F09-4A9F-A2C3-FD408DC6433A}
+		{8678B117-3B4B-48F5-A5CD-0B725819EC05} = {1A3EAC96-6F09-4A9F-A2C3-FD408DC6433A}
+		{3945EC22-4AB3-4C2E-920C-80B54D120802} = {1A3EAC96-6F09-4A9F-A2C3-FD408DC6433A}
+		{2F2701DE-06B1-416B-A62E-9310F3F2FF37} = {DEF7383F-B92A-4E25-8EA4-1A7BF8506459}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AC2D95FD-F415-4B7E-B004-6823FC12008E}

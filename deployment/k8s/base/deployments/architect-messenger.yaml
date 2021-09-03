@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+# User is required for Rancher to create the services automatically
+  annotations:
+    field.cattle.io/creatorId: user-qkgd2
+  name: architect-messenger
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: apps.deployment-architectonic-architect-messenger
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-architectonic-architect-messenger
+    spec:
+      affinity: {}
+      containers:
+      - envFrom:
+        - secretRef:
+            name: architect-messenger-secret
+            optional: false
+        image: rabbitmq:3-management-alpine
+        imagePullPolicy: Always
+        name: container-0
+        ports:
+        - containerPort: 5672
+          name: 5672tcp
+          protocol: TCP
+        - containerPort: 15672
+          name: 15672tcp
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
