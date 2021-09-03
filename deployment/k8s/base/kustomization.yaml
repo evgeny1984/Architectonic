@@ -1,0 +1,42 @@
+# apiVersion and kind of Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Adds namespace to all resources.
+namespace: architectonic
+
+# Labels to add to all resources and selectors.
+commonLabels:
+  owner: EVO
+  application: Architectonic
+  stage: development
+  version: ver-0.1
+  
+# Each entry in this list must resolve to an existing
+# resource definition in YAML.  These are the resource
+# files that kustomize reads, modifies and emits as a
+# YAML string, with resources separated by document
+# markers ("---").
+resources:
+#Secrets
+- ./secrets/architect-generator-secret.yaml
+- ./secrets/architect-messenger-secret.yaml
+- ./secrets/eventbus-settings-secret.yaml
+- ./secrets/sql-data-generatordb-secret.yaml
+#ConfigMaps
+- ./configmaps/architect-compiler-configmap.yaml
+- ./configmaps/architect-generator-configmap.yaml
+- ./configmaps/architect-web-configmap.yaml
+- ./configmaps/environment-configmap.yaml
+- ./configmaps/eventbus-settings-configmap.yaml
+#Stateful sets
+- /statefulsets/sql-data-generatordb.yaml
+#Deployments
+- ./deployments/architect-compiler.yaml
+- ./deployments/architect-gateway.yaml
+- ./deployments/architect-generator.yaml
+- ./deployments/architect-messenger.yaml
+- ./deployments/architect-notification.yaml
+- ./deployments/architect-supplier.yaml
+- ./deployments/architect-web.yaml
+ 

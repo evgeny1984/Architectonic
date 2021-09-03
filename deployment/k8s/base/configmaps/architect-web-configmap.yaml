@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  EventBusSettings__SubscriptionClientName: Web
+  IdentityUrl: http://architect-gateway/identity
+  ServiceGatewayUrl: http://architect-gateway
+kind: ConfigMap
+metadata:
+  name: architect-web-configmap

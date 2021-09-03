@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    field.cattle.io/publicEndpoints: '[{"port":443,"protocol":"HTTPS","serviceName":"architectonic:architect-web","ingressName":"architectonic:architect-web-ingress","hostname":"architectonic.localhost","path":"/","allNodes":false}]'
+  name: architect-web-ingress
+spec:
+  rules:
+  - host: architectonic.localhost
+    http:
+      paths:
+      - backend:
+          service:
+            name: architect-web
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - architectonic.localhost
