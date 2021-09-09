@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Jering.Javascript.NodeJS" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\Ar.Common\Helpers\Common\Ar.Common.Helpers.csproj" />
     <ProjectReference Include="..\..\..\Ar.Messages\EventBus\EventBusRabbitMQ\EventBusRabbitMQ.csproj" />
     <ProjectReference Include="..\..\..\Ar.Messages\EventBus\EventBus\EventBus.csproj" />

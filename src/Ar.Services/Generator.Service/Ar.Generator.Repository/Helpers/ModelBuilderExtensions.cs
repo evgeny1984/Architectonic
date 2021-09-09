@@ -1,6 +1,10 @@
-﻿using Ar.Generator.Repository;
+﻿using Ar.Generator.Data.Models.SolutionAppConfig;
+using Ar.Generator.Repository;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Ar.Generator.Repository.Helpers
@@ -25,25 +29,28 @@ namespace Ar.Generator.Repository.Helpers
             #region Seed Data
 
             // Check if DB has been already seeded
-            //if (context.Rights.Any())
-            //{
-            //    return;
-            //}
+            if (context.Solutions.Any())
+            {
+                return;
+            }
 
             #region Example
 
-            //var categories = new List<OrderItemCategory>()
-            //{
-            //    new OrderItemCategory()
-            //    {
-            //        ID=1,
-            //        Category= "Halteverbotszonen"
-            //    }
-            //};
+            var solutions = new List<Solution>()
+            {
+                new Solution()
+                {
+                    Name = "Test solution",
+                    RepositoryName = "https://github.com/username/testrepository.git",
+                    Description = "Test solution description",
+                    AdlContent = "",
+                    AddedAt = DateTime.Now,
+                    ModifiedAt = DateTime.Now
+                }
+            };
 
-            //await context.OrderItemCategories.AddRangeAsync(categories);
-            //await context.SaveChangesAsync();
-            //var savedCategories = context.OrderItemCategories.ToDictionary(v => v.Category, v => v.ID);
+            await context.Solutions.AddRangeAsync(solutions);
+            await context.SaveChangesAsync();
 
             #endregion
 

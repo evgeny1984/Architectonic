@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "name": "architect.generator",
+  "private": true,
+  "devDependencies": {
+    "gulp": "4.0.2"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "eta": "^1.12.3"
+  }
+}

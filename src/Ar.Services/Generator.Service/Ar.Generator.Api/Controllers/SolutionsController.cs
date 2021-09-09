@@ -13,11 +13,13 @@ namespace Ar.Generator.Api.Controllers
     {
         private readonly ILogger _logger;
         private ISolutionService _solutionService;
+        private IGeneratorService _generationService;
 
-        public SolutionsController(ISolutionService solutionService, ILogger<SolutionsController> logger)
+        public SolutionsController(ISolutionService solutionService, IGeneratorService generationService, ILogger<SolutionsController> logger)
         {
             _solutionService = solutionService;
             _logger = logger;
+            _generationService = generationService;
         }
 
         // GET: api/solutions
@@ -59,7 +61,11 @@ namespace Ar.Generator.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<int>> PostSolution(SolutionDto solution)
         {
+            // Persist the solution to the db
             int pk = await _solutionService.Create(solution);
+
+            // Generate the solution structure based on the solution
+            await _generationService.GenerateSolution(solution);
 
             return CreatedAtAction(nameof(PostSolution), new { id = pk }, pk);
         }

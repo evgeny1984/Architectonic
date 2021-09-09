@@ -8,6 +8,7 @@ using Ar.Messages.EventBus.EventBusRabbitMQ;
 using Architect.Dto.Dto;
 using Architect.Dto.Events;
 using Autofac;
+using Jering.Javascript.NodeJS;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -38,6 +39,29 @@ namespace Ar.Generator.Service.Extensions
         public static IServiceCollection AddInternalServices(this IServiceCollection services)
         {
             services.AddTransient<ISolutionService, SolutionService>();
+            services.AddTransient<INodeJsService, NodeJsService>();
+            services.AddTransient<IGeneratorService, GeneratorService>();
+
+            return services;
+        }
+
+        public static IServiceCollection AddNodeJsService(this IServiceCollection services)
+        {
+            // Add node js library to call js functions
+            services.AddNodeJS();
+
+            // Set the folder containing scripts
+            services.Configure<NodeJSProcessOptions>(options => options.ProjectPath = "./wwwroot/scripts/");
+            
+            // Enable javascript debugging in chrome
+            services.Configure<NodeJSProcessOptions>(options => options.NodeAndV8Options = "--inspect-brk");
+
+            services.Configure<OutOfProcessNodeJSServiceOptions>(options =>
+            {
+                options.TimeoutMS = -1; // Set the timeout for connecting to the NodeJS process and for invocations to -1(infinite)
+                options.Concurrency = Concurrency.MultiProcess; // Concurrency.None by default, Invocations will be distributed among multiple NodeJS processes using round-robin load balancing
+                options.ConcurrencyDegree = 8; // Number of processes. Defaults to the number of logical processors on your machine.
+            });
 
             return services;
         }

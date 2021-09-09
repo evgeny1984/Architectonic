@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using IdentityServer4.Models;
 
-namespace Sp.Common.Authorization
+namespace Ar.Common.Authorization
 {
     public static class CustomClaimTypes
     {

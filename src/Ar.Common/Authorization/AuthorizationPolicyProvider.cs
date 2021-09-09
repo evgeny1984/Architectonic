@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Sp.Common.Authorization
+namespace Ar.Common.Authorization
 {
     /// <summary>
     /// Collects all Authorization attributes with "Policy = .."

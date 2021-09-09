@@ -54,3 +54,5 @@ src/No.Services/No.Identity/No.Identity.Api/wwwroot/js/vendor.min.js
 src/No.Services/No.Identity/No.Identity.Api/wwwroot/js/vendor-validation.min.js
 .cr/
 *.user
+src/Ar.Services/Generator.Service/Ar.Generator.Api/wwwroot/
+src/Ar.Services/Generator.Service/Ar.Generator.Api/package-lock.json

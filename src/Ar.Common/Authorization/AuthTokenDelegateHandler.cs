@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace Sp.Common.Authorization
+namespace Ar.Common.Authorization
 {
     /// <summary>
     /// Take the authentication token of the parent
@@ -24,11 +24,11 @@ namespace Sp.Common.Authorization
             HttpRequestMessage request,
             CancellationToken cancellationToken)
         {
-            // get the auth header from parent request
+            // Get the auth header from parent request
             var authHeader = httpContextAccessor.HttpContext.Request.Headers["Authorization"];
             if (authHeader.Count > 0)
             {
-                // set the auth header token to the outgoing request
+                // Set the auth header token to the outgoing request
                 request.Headers.Add("Authorization", authHeader.ToArray());
             }
             // Proceed calling the inner handler

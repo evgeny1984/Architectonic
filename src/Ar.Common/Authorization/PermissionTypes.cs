@@ -1,4 +1,4 @@
-﻿namespace Sp.Common.Authorization
+﻿namespace Ar.Common.Authorization
 {
     public static class PermissionTypes
     {
@@ -21,7 +21,6 @@
         public const string DAL_ReadData = "dal.readData";
 
         #endregion
-
 
         #region Permissions for Dashboard
 

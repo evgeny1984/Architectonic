@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "ES6",
+    "outDir": "wwwroot/scripts",
+    "moduleResolution": "node",
+    "module": "commonjs"
+  },
+  "typeRoots": [
+    "node_modules/@types"
+  ],
+  "compileOnSave": true,
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ],
+  "include": [
+    "Scripts/**/*"
+  ]
+}

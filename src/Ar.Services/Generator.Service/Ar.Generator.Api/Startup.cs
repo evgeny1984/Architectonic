@@ -40,6 +40,8 @@ namespace Ar.Generator.Api
             var appSettings = new AppSettings();
             Configuration.Bind(appSettings);
 
+            services.AddNodeJsService();
+
             services.AddPostgreDbContext(appSettings.ConnectionStrings.DataAccessPostgreProvider);
 
             services.AddRepositoryWrapper();

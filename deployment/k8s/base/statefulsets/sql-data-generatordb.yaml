@@ -23,7 +23,7 @@ spec:
         - secretRef:
             name: sql-data-generatordb-secret
             optional: false
-        image: sameersbn/postgresql:10-2
+        image: sameersbn/postgresql:latest
         imagePullPolicy: Always
         name: sql-data-generatordb
         ports:
@@ -34,7 +34,7 @@ spec:
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
         volumeMounts:
-        - mountPath: /var/lib/postgresql/data
+        - mountPath: /var/lib/postgresql
           name: generatordb-volume
       dnsPolicy: ClusterFirst
       restartPolicy: Always
